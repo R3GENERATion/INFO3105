@@ -1,0 +1,1054 @@
+                   J E S 2  J O B  L O G  --  S Y S T E M  8 5 6 1  --  N O D E  S V S C J E S 2
+ 
+19.54.21 JOB06082 ---- FRIDAY,    12 MAY 2023 ----
+19.54.21 JOB06082  IRR010I  USERID KC03CB3  IS ASSIGNED TO THIS JOB.
+19.54.21 JOB06082  IEF677I WARNING MESSAGE(S) FOR JOB LAB5     ISSUED
+19.54.22 JOB06082  ICH70001I KC03CB3  LAST ACCESS AT 19:52:18 ON FRIDAY, MAY 12, 2023
+19.54.22 JOB06082  $HASP373 LAB5     STARTED - INIT 1    - CLASS A        - SYS 8561
+19.54.26 JOB06082  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+19.54.26 JOB06082  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+19.54.26 JOB06082  -S1       COBOL       00  14386    449       .00       .00     .0            70  BATCH        0     0     0     0
+19.54.26 JOB06082  -S1       LKED        00    313     39       .00       .00     .0            61  BATCH        0     0     0     0
+19.54.27 JOB06082  -EXECUTE              00     32      1       .00       .00     .0             2  BATCH        0     0     0     0
+19.54.27 JOB06082  -LAB5     ENDED.  NAME-                     TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+19.54.27 JOB06082  $HASP395 LAB5     ENDED - RC=0000
+------ JES2 JOB STATISTICS ------
+  12 MAY 2023 JOB EXECUTION DATE
+           14 CARDS READ
+        1,062 SYSOUT PRINT RECORDS
+            0 SYSOUT PUNCH RECORDS
+           77 SYSOUT SPOOL KBYTES
+         0.09 MINUTES EXECUTION TIME
+        1 //LAB5 JOB LAB5,NOTIFY=&SYSUID                                          JOB06082
+          //**************************************************
+          //* JCL TO COMPILE COBOL SOURCE CODE AND LINK MODULE
+          //**************************************************
+          IEFC653I SUBSTITUTION JCL - LAB5,NOTIFY=KC03CB3
+        2 //S1 EXEC IGYWCL
+        3 XXIGYWCL PROC  LNGPRFX='IGY630',                                        00001000
+          XX             LIBPRFX='CEE',                                           00002000
+          XX             PGMLIB='&&GOSET',GOPGM=GO                                00003000
+          XX*                                                                     00004000
+          XX********************************************************************* 00005000
+          XX*                                                                   * 00006000
+          XX*  IBM Enterprise COBOL for z/OS                                    * 00007000
+          XX*               Version 6 Release 3 Modification 0                  * 00008000
+          XX*                                                                   * 00009000
+          XX*  LICENSED MATERIALS - PROPERTY OF IBM.                            * 00010000
+          XX*                                                                   * 00011000
+          XX*  5655-EC6 COPYRIGHT IBM CORP. 1983, 2019                          * 00012000
+          XX*                                                                   * 00013000
+          XX*  US GOVERNMENT USERS RESTRICTED RIGHTS - USE,                     * 00014000
+          XX*  DUPLICATION OR DISCLOSURE RESTRICTED BY GSA                      * 00015000
+          XX*  ADP SCHEDULE CONTRACT WITH IBM CORP.                             * 00016000
+          XX*                                                                   * 00017000
+          XX********************************************************************* 00018000
+          XX*                                                                     00019000
+          XX*  COMPILE AND LINK EDIT A COBOL PROGRAM                              00020000
+          XX*                                                                     00021000
+          XX*  PARAMETER  DEFAULT VALUE    USAGE                                  00022000
+          XX*   LNGPRFX   IGY.V6R3M0       PREFIX FOR LANGUAGE DATA SET NAMES     00023000
+          XX*   LIBPRFX   CEE              PREFIX FOR LIBRARY DATA SET NAMES      00024000
+          XX*   PGMLIB    &&GOSET          DATA SET NAME FOR LOAD MODULE          00025000
+          XX*   GOPGM     GO               MEMBER NAME FOR LOAD MODULE            00026000
+          XX*                                                                     00027000
+          XX*  CALLER MUST SUPPLY //COBOL.SYSIN DD ...                            00028000
+          XX*                                                                     00029000
+          XX*  CALLER MUST ALSO SUPPLY //COBOL.SYSLIB DD ... for COPY statements  00030000
+          XX*                                                                     00031000
+          XX*  NOTE:  SYSUT* datasets must be single-volume datasets              00032000
+          XX*                                                                     00033000
+        4 XXCOBOL  EXEC PGM=IGYCRCTL,REGION=0M                                    00034000
+        5 XXSTEPLIB  DD  DSNAME=&LNGPRFX..SIGYCOMP,DISP=SHR                       00035000
+          IEFC653I SUBSTITUTION JCL - DSNAME=IGY630.SIGYCOMP,DISP=SHR
+        6 XX         DD  DSNAME=&LIBPRFX..SCEERUN,DISP=SHR                        00036000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEERUN,DISP=SHR
+        7 XX         DD  DSNAME=&LIBPRFX..SCEERUN2,DISP=SHR                       00037000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEERUN2,DISP=SHR
+        8 XXSYSPRINT DD  SYSOUT=*                                                 00038000
+        9 XXSYSLIN   DD  DSNAME=&&LOADSET,UNIT=SYSALLDA,                          00039000
+          XX             DISP=(MOD,PASS),SPACE=(CYL,(1,1)),VOL=(,,,1)             00040000
+       10 XXSYSUT1   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00041000
+       11 XXSYSUT2   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00042000
+       12 XXSYSUT3   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00043000
+       13 XXSYSUT4   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00044000
+       14 XXSYSUT5   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00045000
+       15 XXSYSUT6   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00046000
+       16 XXSYSUT7   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00047000
+       17 XXSYSUT8   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00048000
+       18 XXSYSUT9   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00049000
+       19 XXSYSUT10  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00050000
+       20 XXSYSUT11  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00051000
+       21 XXSYSUT12  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00052000
+       22 XXSYSUT13  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00053000
+       23 XXSYSUT14  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00054000
+       24 XXSYSUT15  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00055000
+       25 XXSYSMDECK DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00056000
+       26 //COBOL.SYSIN DD DSN=&SYSUID..COBOL(LAB5),DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.COBOL(LAB5),DISP=SHR
+       27 XXLKED   EXEC PGM=IEWBLINK,COND=(8,LT,COBOL),REGION=0M                  00057000
+       28 XXSYSLIB   DD  DSNAME=&LIBPRFX..SCEELKEX,DISP=SHR                       00058000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEELKEX,DISP=SHR
+       29 XX         DD  DSNAME=&LIBPRFX..SCEELKED,DISP=SHR                       00059000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEELKED,DISP=SHR
+       30 XXSYSPRINT DD  SYSOUT=*                                                 00060000
+       31 XXSYSLIN   DD  DSNAME=&&LOADSET,DISP=(OLD,DELETE)                       00061000
+       32 XX         DD  DDNAME=SYSIN                                             00062000
+       33 //LKED.SYSLMOD DD DSN=&SYSUID..LOAD(LAB5),DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.LOAD(LAB5),DISP=SHR
+          X/SYSLMOD  DD  DSNAME=&PGMLIB(&GOPGM),                                  00063000
+          X/             SPACE=(CYL,(1,1,1)),                                     00064000
+          X/             UNIT=SYSALLDA,DISP=(MOD,PASS),DSNTYPE=LIBRARY            00065000
+          //*************************************
+          //* JCL TO EXECUTE COBOL PROGRAM MODULE
+          //*************************************
+          IEFC653I SUBSTITUTION JCL - DSNAME=&&GOSET(GO),SPACE=(CYL,(1,1,1)),UNIT=SYSALLDA,DISP=(MOD,PASS),
+          DSNTYPE=LIBRARY
+       34 //EXECUTE EXEC PGM=LAB5
+       35 //STEPLIB DD DSN=&SYSUID..LOAD,DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.LOAD,DISP=SHR
+       36 //PRNT DD SYSOUT=*
+       37 //INPUT DD DSN=&SYSUID..SLSPMAST,DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.SLSPMAST,DISP=SHR
+ STMT NO. MESSAGE
+        2 IEFC001I PROCEDURE IGYWCL WAS EXPANDED USING SYSTEM LIBRARY SVTSC.PROCLIB
+       34 IEF686I DDNAME REFERRED TO ON DDNAME KEYWORD IN PRIOR STEP WAS NOT RESOLVED
+ICH70001I KC03CB3  LAST ACCESS AT 19:52:18 ON FRIDAY, MAY 12, 2023
+IEFA111I LAB5 IS USING THE FOLLOWING JOB RELATED SETTINGS:
+         SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+IEF236I ALLOC. FOR LAB5 COBOL S1
+IEF237I 1A76 ALLOCATED TO STEPLIB
+IEF237I 1001 ALLOCATED TO
+IEF237I 1001 ALLOCATED TO
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IGD101I SMS ALLOCATED TO DDNAME (SYSLIN  )
+        DSN (SYS23132.T195421.RA000.LAB5.LOADSET.H01     )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT1  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195170        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT2  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195171        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT3  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195172        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT4  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195173        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT5  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195174        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT6  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195175        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT7  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195176        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT8  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195177        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT9  )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195178        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT10 )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195179        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT11 )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195180        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT12 )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195181        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT13 )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195182        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT14 )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195183        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT15 )
+        DSN (SYS23132.T195421.RA000.LAB5.R0195184        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSMDECK)
+        DSN (SYS23132.T195421.RA000.LAB5.R0195185        )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD103I SMS ALLOCATED TO DDNAME SYSIN
+IEF237I JES2 ALLOCATED TO SYS00001
+IEF285I   KC03CB3.LAB5.JOB06082.D0000104.?             SYSOUT
+IEF142I LAB5 COBOL S1 - STEP WAS EXECUTED - COND CODE 0000
+IEF285I   IGY630.SIGYCOMP                              KEPT
+IEF285I   VOL SER NOS= VTIGYL.
+IEF285I   CEE.SCEERUN                                  KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   CEE.SCEERUN2                                 KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   KC03CB3.LAB5.JOB06082.D0000101.?             SYSOUT
+IGD106I SYS23132.T195421.RA000.LAB5.LOADSET.H01      PASSED,    DDNAME=SYSLIN
+IGD105I SYS23132.T195421.RA000.LAB5.R0195170         DELETED,   DDNAME=SYSUT1
+IGD105I SYS23132.T195421.RA000.LAB5.R0195171         DELETED,   DDNAME=SYSUT2
+IGD105I SYS23132.T195421.RA000.LAB5.R0195172         DELETED,   DDNAME=SYSUT3
+IGD105I SYS23132.T195421.RA000.LAB5.R0195173         DELETED,   DDNAME=SYSUT4
+IGD105I SYS23132.T195421.RA000.LAB5.R0195174         DELETED,   DDNAME=SYSUT5
+IGD105I SYS23132.T195421.RA000.LAB5.R0195175         DELETED,   DDNAME=SYSUT6
+IGD105I SYS23132.T195421.RA000.LAB5.R0195176         DELETED,   DDNAME=SYSUT7
+IGD105I SYS23132.T195421.RA000.LAB5.R0195177         DELETED,   DDNAME=SYSUT8
+IGD105I SYS23132.T195421.RA000.LAB5.R0195178         DELETED,   DDNAME=SYSUT9
+IGD105I SYS23132.T195421.RA000.LAB5.R0195179         DELETED,   DDNAME=SYSUT10
+IGD105I SYS23132.T195421.RA000.LAB5.R0195180         DELETED,   DDNAME=SYSUT11
+IGD105I SYS23132.T195421.RA000.LAB5.R0195181         DELETED,   DDNAME=SYSUT12
+IGD105I SYS23132.T195421.RA000.LAB5.R0195182         DELETED,   DDNAME=SYSUT13
+IGD105I SYS23132.T195421.RA000.LAB5.R0195183         DELETED,   DDNAME=SYSUT14
+IGD105I SYS23132.T195421.RA000.LAB5.R0195184         DELETED,   DDNAME=SYSUT15
+IGD105I SYS23132.T195421.RA000.LAB5.R0195185         DELETED,   DDNAME=SYSMDECK
+IGD104I KC03CB3.COBOL                                RETAINED,  DDNAME=SYSIN
+IEF373I STEP/COBOL   /START 2023132.1954
+IEF032I STEP/COBOL   /STOP  2023132.1954
+        CPU:     0 HR  00 MIN  00.04 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+        VIRT:   532K  SYS:   752K  EXT:   138124K  SYS:    14708K
+        ATB- REAL:                  7688K  SLOTS:                     0K
+             VIRT- ALLOC:     535M SHRD:       0M
+IEF236I ALLOC. FOR LAB5 LKED S1
+IEF237I 1001 ALLOCATED TO SYSLIB
+IEF237I 1001 ALLOCATED TO
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IGD103I SMS ALLOCATED TO DDNAME SYSLIN
+IEF237I DMY  ALLOCATED TO
+IGD103I SMS ALLOCATED TO DDNAME SYSLMOD
+IEF142I LAB5 LKED S1 - STEP WAS EXECUTED - COND CODE 0000
+IEF285I   CEE.SCEELKEX                                 KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   CEE.SCEELKED                                 KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   KC03CB3.LAB5.JOB06082.D0000102.?             SYSOUT
+IGD105I SYS23132.T195421.RA000.LAB5.LOADSET.H01      DELETED,   DDNAME=SYSLIN
+IGD104I KC03CB3.LOAD                                 RETAINED,  DDNAME=SYSLMOD
+IEF373I STEP/LKED    /START 2023132.1954
+IEF032I STEP/LKED    /STOP  2023132.1954
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+        VIRT:    88K  SYS:   284K  EXT:     1768K  SYS:    12060K
+        ATB- REAL:                  1080K  SLOTS:                     0K
+             VIRT- ALLOC:      17M SHRD:       0M
+IEF236I ALLOC. FOR LAB5 EXECUTE
+IGD103I SMS ALLOCATED TO DDNAME STEPLIB
+IEF237I JES2 ALLOCATED TO PRNT
+IGD103I SMS ALLOCATED TO DDNAME INPUT
+IEF142I LAB5 EXECUTE - STEP WAS EXECUTED - COND CODE 0000
+IGD104I KC03CB3.LOAD                                 RETAINED,  DDNAME=STEPLIB
+IEF285I   KC03CB3.LAB5.JOB06082.D0000103.?             SYSOUT
+IGD104I KC03CB3.SLSPMAST                             RETAINED,  DDNAME=INPUT
+IEF373I STEP/EXECUTE /START 2023132.1954
+IEF032I STEP/EXECUTE /STOP  2023132.1954
+        CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+        VIRT:    92K  SYS:   276K  EXT:     2928K  SYS:    11796K
+        ATB- REAL:                  1080K  SLOTS:                     0K
+             VIRT- ALLOC:      17M SHRD:       0M
+IEF375I  JOB/LAB5    /START 2023132.1954
+IEF033I  JOB/LAB5    /STOP  2023132.1954
+        CPU:     0 HR  00 MIN  00.05 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115                 Date 05/12/2023  Time 19:54:24   Page     1
+Options in effect:
+ NOADATA
+   ADV
+   AFP(NOVOLATILE)
+   QUOTE
+   ARCH(8)
+   ARITH(COMPAT)
+ NOAWO
+ NOBLOCK0
+   BUFSIZE(4096)
+ NOCICS
+   CODEPAGE(1140)
+ NOCOMPILE(S)
+ NOCOPYLOC
+ NOCOPYRIGHT
+ NOCURRENCY
+   DATA(31)
+   DBCS
+ NODECK
+ NODEFINE
+ NODIAGTRUNC
+   DISPSIGN(COMPAT)
+ NODLL
+ NODUMP
+ NODYNAM
+ NOEXIT
+ NOEXPORTALL
+ NOFASTSRT
+   FLAG(I,I)
+ NOFLAGSTD
+   HGPR(PRESERVE)
+ NOINITCHECK
+ NOINITIAL
+   INLINE
+   INTDATE(ANSI)
+ NOJTC
+   LANGUAGE(EN)
+   LINECOUNT(60)
+ NOLIST
+   LP(32)
+ NOMAP
+   MAXPCF(100000)
+ NOMDECK
+ NONAME
+   NSYMBOL(NATIONAL)
+ NONUMBER
+ NONUMCHECK
+   NUMPROC(NOPFD)
+   OBJECT
+ NOOFFSET
+   OPTIMIZE(0)
+   OUTDD(SYSOUT)
+ NOPARMCHECK
+   PGMNAME(COMPAT)
+   QUALIFY(COMPAT)
+   RENT
+   RMODE(AUTO)
+ NORULES
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115                 Date 05/12/2023  Time 19:54:24   Page     2
+ NOSERVICE
+   SEQUENCE
+   SOURCE
+   SPACE(1)
+ NOSQL
+   SQLCCSID
+ NOSQLIMS
+ NOSSRANGE
+ NOSTGOPT
+   SUPPRESS
+ NOTERM
+ NOTEST(NODWARF,NOSOURCE,NOSEPARATE)
+ NOTHREAD
+   TRUNC(STD)
+ NOVBREF
+   VLR(STANDARD)
+   VSAMOPENFS(COMPAT)
+ NOWORD
+   XMLPARSE(XMLSS)
+   XREF(FULL)
+   ZONEDATA(PFD)
+   ZWB
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page     3
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000001                IDENTIFICATION DIVISION.
+  000002                PROGRAM-ID.  LAB5.
+  000003                AUTHOR. GAVIN GUERETTE.
+  000004                ENVIRONMENT DIVISION.
+  000005                CONFIGURATION SECTION.
+  000006                INPUT-OUTPUT SECTION.
+  000007                FILE-CONTROL.
+  000008                    SELECT INPUT-FILE    ASSIGN TO DA-S-INPUT                             15
+  000009                           FILE STATUS IS IN-STATUS.                                      155
+  000010                    SELECT PRNT-FILE     ASSIGN TO UR-S-PRNT.                             18
+  000011
+  000012                DATA DIVISION.
+  000013
+  000014                FILE SECTION.
+  000015                FD  INPUT-FILE.
+ 
+==000015==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "INPUT-FILE".
+ 
+  000016                01  INPUT-REC                  PIC X(50).
+  000017
+  000018                FD  PRNT-FILE.
+ 
+==000018==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "PRNT-FILE".
+ 
+  000019                01  PRNT-REC                   PIC X(125).
+  000020                WORKING-STORAGE SECTION.
+  000021               *****************************************************************
+  000022               *         TO BE USED AS A COPYBOOK FOR THE INPUT DATA           *
+  000023               *****************************************************************
+  000024                01 SALESPERSON-MASTER.
+  000025                    05 SALESPERSON-NO            PIC 9(5).
+  000026                    05 SALESPERSON-LAST-NAME     PIC X(15).
+  000027                    05 SALESPERSON-FIRST-NAME    PIC X(10).
+  000028                    05 SALESPERSON-GROSS-SALES   PIC 9(5)V99.
+  000029                    05 SALESPERSON-RETURN-SALES  PIC 9(4)V99.
+  000030                    05 SALESPERSON-BRANCH-NO     PIC 9(3).
+  000031                    05 SALESPERSON-COMM-RATE     PIC V9999.
+  000032               *****************************************************************
+  000033               *                        HEADING LAYOUT                         *
+  000034               *****************************************************************
+  000035                01 WS-HEADING-LINE-1.
+  000036                    05 FILLER            PIC X(5)        VALUE SPACES.                    IMP
+  000037                    05 FILLER            PIC X(6)        VALUE "PAGE  ".
+  000038                    05 WS-HL1-PAGENO     PIC Z9          VALUE ZERO.                      IMP
+  000039                    05 FILLER            PIC X(29)       VALUE SPACES.                    IMP
+  000040                    05 FILLER            PIC X(15)       VALUE "ABC CORPORATION".
+  000041                    05 FILLER            PIC X(27)       VALUE SPACES.                    IMP
+  000042                    05 WS-HL1-MONTH      PIC 9(2).
+  000043                    05 FILLER            PIC X           VALUE "/".
+  000044                    05 WS-HL1-DAY        PIC 9(2).
+  000045                    05 FILLER            PIC X           VALUE "/".
+  000046                    05 WS-HL1-YEAR       PIC 9(4).
+  000047                01 WS-HEADING-LINE-2.
+  000048                    05 FILLER            PIC X(39)       VALUE SPACES.                    IMP
+  000049                    05 FILLER            PIC X(12)       VALUE "SALESPERSON ".
+  000050                    05 FILLER            PIC X(9)        VALUE "BY BRANCH".
+  000051                01 WS-HEADING-LINE-3.
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page     4
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000052                    05 FILLER            PIC X(3)        VALUE SPACES.                    IMP
+  000053                    05 FILLER            PIC X(8)        VALUE "BRANCH: ".
+  000054                    05 WS-BRANCH-NUMBER  PIC 9(3)        VALUE ZEROS.                     IMP
+  000055                01 WS-HEADING-LINE-4.
+  000056                    05 FILLER            PIC X(3)        VALUE SPACES.                    IMP
+  000057                    05 FILLER            PIC X(9)        VALUE "LAST NAME".
+  000058                    05 FILLER            PIC X(9)        VALUE SPACES.                    IMP
+  000059                    05 FILLER            PIC X(10)       VALUE "FIRST NAME".
+  000060                    05 FILLER            PIC X(5)        VALUE SPACES.                    IMP
+  000061                    05 FILLER            PIC X(11)       VALUE "GROSS SALES".
+  000062                    05 FILLER            PIC X(9)        VALUE SPACES.                    IMP
+  000063                    05 FILLER            PIC X(7)        VALUE "RETURNS".
+  000064                    05 FILLER            PIC X(7)        VALUE SPACES.                    IMP
+  000065                    05 FILLER            PIC X(9)        VALUE "NET SALES".
+  000066                    05 FILLER            PIC X(6)        VALUE SPACES.                    IMP
+  000067                    05 FILLER            PIC X(10)       VALUE "COMMISSION".
+  000068               ******************************************************************
+  000069               *                    CALCULATE BRANCH TOTALS                     *
+  000070               ******************************************************************
+  000071                01 SALES-CALC-FIELDS.
+  000072                    05 CAL-COMMISSION-EARNED     PIC S9(7)V99        VALUE ZERO.          IMP
+  000073                    05 CAL-SALESPERSON-NET       PIC S9(7)V99        VALUE ZERO.          IMP
+  000074                    05 CAL-BRANCH-TOTAL-GROSS    PIC S9(7)V99        VALUE ZERO.          IMP
+  000075                    05 CAL-BRANCH-TOTAL-NET      PIC S9(7)V99        VALUE ZERO.          IMP
+  000076                    05 CAL-BRANCH-TOTAL-COMM     PIC S9(7)V99        VALUE ZERO.          IMP
+  000077                    05 CAL-BRANCH-TOTAL-RETURN   PIC S9(7)V99        VALUE ZERO.          IMP
+  000078                    05 CAL-GRAND-TOTAL-GROSS     PIC S9(8)V99        VALUE ZERO.          IMP
+  000079                    05 CAL-GRAND-TOTAL-NET       PIC S9(8)V99        VALUE ZERO.          IMP
+  000080                    05 CAL-GRAND-TOTAL-COMM      PIC S9(8)V99        VALUE ZERO.          IMP
+  000081                    05 CAL-GRAND-TOTAL-RETURN    PIC S9(8)V99        VALUE ZERO.          IMP
+  000082               ******************************************************************
+  000083               *                         BRANCH TOTALS                          *
+  000084               ******************************************************************
+  000085                01 WS-BRANCH-TOTALS.
+  000086                    05 FILLER                  PIC X(3)    VALUE SPACES.                  IMP
+  000087                    05 FILLER                  PIC X(13)   VALUE "TOTAL BRANCH ".
+  000088                    05 WS-BRANCH-NO            PIC 9(3).
+  000089                    05 FILLER                  PIC X(14)   VALUE SPACES.                  IMP
+  000090                    05 WS-BRANCH-TOTAL-GROSS   PIC $$$,$$$,$$$.$$.
+  000091                    05 FILLER                  PIC X(2)   VALUE SPACES.                   IMP
+  000092                    05 WS-BRANCH-TOTAL-RETURN  PIC $$$,$$$,$$$.$$.
+  000093                    05 FILLER                  PIC X(2)   VALUE SPACES.                   IMP
+  000094                    05 WS-BRANCH-TOTAL-NET     PIC $$$,$$$,$$$.$$.
+  000095                    05 FILLER                  PIC X(2)   VALUE SPACES.                   IMP
+  000096                    05 WS-BRANCH-TOTAL-COMM    PIC $$$,$$$,$$$.$$.
+  000097               *****************************************************************
+  000098               *                     UNDERLINE STRUCTURES                      *
+  000099               *****************************************************************
+  000100                01 WS-TOTALS-UL.
+  000101                    05 FILLER                PIC X(34)   VALUE SPACES.                    IMP
+  000102                    05 FILLER                PIC X(13)   VALUE '-------------'.
+  000103                    05 FILLER                PIC X(6)    VALUE SPACES.                    IMP
+  000104                    05 FILLER                PIC X(10)   VALUE '----------'.
+  000105                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000106                    05 FILLER                PIC X(13)   VALUE '-------------'.
+  000107                    05 FILLER                PIC X(4)    VALUE SPACES.                    IMP
+  000108                    05 FILLER                PIC X(12)   VALUE '------------'.
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page     5
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000109                01 WS-DBL-TOTALS-UL.
+  000110                    05 FILLER                PIC X(34)   VALUE SPACES.                    IMP
+  000111                    05 FILLER                PIC X(13)   VALUE '============='.
+  000112                    05 FILLER                PIC X(6)    VALUE SPACES.                    IMP
+  000113                    05 FILLER                PIC X(10)   VALUE '=========='.
+  000114                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000115                    05 FILLER                PIC X(13)   VALUE '============='.
+  000116                    05 FILLER                PIC X(4)    VALUE SPACES.                    IMP
+  000117                    05 FILLER                PIC X(12)   VALUE '============'.
+  000118               *****************************************************************
+  000119               *                  OUTPUT SALESPERSON DETAIL                    *
+  000120               *****************************************************************
+  000121                01 WS-EMPLOYEE-DATA.
+  000122                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000123                    05 WS-EMPLOYEE-LASTNAME  PIC X(15).
+  000124                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000125                    05 WS-EMPLOYEE-FIRSTNAME PIC X(10).
+  000126                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000127                    05 WS-EMPLOYEE-GROSS     PIC $$,$$$,$$$.$$.
+  000128                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000129                    05 WS-EMPLOYEE-RETURNS   PIC $$,$$$,$$$.$$.
+  000130                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000131                    05 WS-EMPLOYEE-NET       PIC $$,$$$,$$$.$$.
+  000132                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000133                    05 WS-EMPLOYEE-COMM      PIC $$,$$$,$$$.$$.
+  000134               *****************************************************************
+  000135               *                    GRAND TOTAL STRUCTURE                      *
+  000136               *****************************************************************
+  000137                01 WS-GRAND-TOTALS.
+  000138                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000139                    05 FILLER                PIC X(8)    VALUE "COMPANY ".
+  000140                    05 FILLER                PIC X(6)    VALUE "TOTALS".
+  000141                    05 FILLER                PIC X(16)   VALUE SPACES.                    IMP
+  000142                    05 WS-GRAND-TOTAL-GROSS  PIC $$$,$$$,$$$.$$.
+  000143                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000144                    05 WS-GRAND-TOTAL-RETURN PIC $$,$$$,$$$.$$.
+  000145                    05 FILLER                PIC X(2)    VALUE SPACES.                    IMP
+  000146                    05 WS-GRAND-TOTAL-NET    PIC $$$,$$$,$$$.$$.
+  000147                    05 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000148                    05 WS-GRAND-TOTAL-COMM   PIC $$,$$$,$$$.$$.
+  000149                01  MISC.
+  000150               ******************************************************************
+  000151               *                   END OF FILE (EOF) SWITCHES                   *
+  000152               *              0 = NOT AT EOF          1 = AT EOF                *
+  000153               ******************************************************************
+  000154                    03  EOF-I                  PIC 9         VALUE 0.
+  000155                    03  IN-STATUS              PIC XX.
+  000156                    03  BREAK-FIELD            PIC 9(3).
+  000157               ******************************************************************
+  000158               *                   CURRENT SYSTEM DATE/TIME                     *
+  000159               ******************************************************************
+  000160                01 WS-CURRENT-DATE.
+  000161                    05 WS-CD-YEAR              PIC X(4).
+  000162                    05 WS-CD-MONTH             PIC XX.
+  000163                    05 WS-CD-DAY               PIC XX.
+  000164               ******************************************************************
+  000165               *                 START OF PROCEDURE DIVISION                    *
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page     6
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000166               ******************************************************************
+  000167                PROCEDURE DIVISION.
+  000168                000-MAINLINE.
+  000169                    OPEN INPUT INPUT-FILE                                                 15
+  000170                    OPEN OUTPUT PRNT-FILE.                                                18
+  000171                    IF IN-STATUS NOT EQUAL "00"                                           155
+  000172      1                  THEN DISPLAY "OPEN INPUT FILE ERROR, IN-STATUS = ",
+  000173      1                  IN-STATUS                                                        155
+  000174      1                      DISPLAY "CHEKC THAT YOUR JCL AND COBOL FILE"
+  000175      1                      " DEFINITIONS MATCH"
+  000176                    ELSE
+  000177      1                  MOVE 1 TO WS-HL1-PAGENO.                                         38
+  000178                         PERFORM 2500-READ-INPUT.                                         316
+  000179                         MOVE SALESPERSON-BRANCH-NO TO BREAK-FIELD                        30 156
+  000180                         MOVE SALESPERSON-BRANCH-NO TO WS-BRANCH-NO.                      30 88
+  000181                         MOVE SALESPERSON-BRANCH-NO TO WS-BRANCH-NUMBER.                  30 54
+  000182                         PERFORM 1000-PRNT-HEADING.                                       193
+  000183                         PERFORM 1100-PRNT-TABLE UNTIL EOF-I = 1.                         207 154
+  000184                         PERFORM 1200-PRNT-BRANCH-TOTALS.                                 231
+  000185                         PERFORM 1400-PRNT-GRAND-TOTALS.                                  242
+  000186               *         PERFORM XXXX-LOOP_FUNC TO INCLUDE READ, PRINT, CALC
+  000187                         CLOSE PRNT-FILE.                                                 18
+  000188                    STOP RUN.
+  000189
+  000190               *****************************************************************
+  000191               *                     PRINT HEADING LAYOUT                      *
+  000192               *****************************************************************
+  000193                1000-PRNT-HEADING.
+  000194                    PERFORM U100-FORMAT-DATE.                                             199
+  000195                    WRITE PRNT-REC FROM WS-HEADING-LINE-1 AFTER ADVANCING PAGE.           19 35
+  000196                    WRITE PRNT-REC FROM WS-HEADING-LINE-2 AFTER ADVANCING 1 LINE.         19 47
+  000197                    WRITE PRNT-REC FROM WS-HEADING-LINE-3 AFTER ADVANCING 1 LINE.         19 51
+  000198                    WRITE PRNT-REC FROM WS-HEADING-LINE-4 AFTER ADVANCING 1 LINE.         19 55
+  000199                U100-FORMAT-DATE.
+  000200                    ACCEPT WS-CURRENT-DATE FROM DATE YYYYMMDD.                            160 160
+  000201                    MOVE WS-CD-MONTH             TO WS-HL1-MONTH.                         162 42
+  000202                    MOVE WS-CD-DAY               TO WS-HL1-DAY.                           163 44
+  000203                    MOVE WS-CD-YEAR              TO WS-HL1-YEAR.                          161 46
+  000204               *****************************************************************
+  000205               *                       PRINT TABLE INFO                        *
+  000206               *****************************************************************
+  000207                1100-PRNT-TABLE.
+  000208                    IF SALESPERSON-BRANCH-NO NOT EQUAL BREAK-FIELD                        30 156
+  000209      1                  PERFORM 1200-PRNT-BRANCH-TOTALS                                  231
+  000210      1                  COMPUTE WS-HL1-PAGENO = FUNCTION NUMVAL(WS-HL1-PAGENO)           38 IFN 38
+  000211      1                  + 1
+  000212      1                  END-COMPUTE
+  000213      1                  MOVE SALESPERSON-BRANCH-NO TO WS-BRANCH-NO                       30 88
+  000214      1                  MOVE SALESPERSON-BRANCH-NO TO WS-BRANCH-NUMBER                   30 54
+  000215      1                  PERFORM 1000-PRNT-HEADING                                        193
+  000216      1                  MOVE SALESPERSON-BRANCH-NO TO BREAK-FIELD                        30 156
+  000217      1                  PERFORM 1300-PRNT-SALESPERSON-INFO                               225
+  000218                    ELSE
+  000219      1                  PERFORM 1300-PRNT-SALESPERSON-INFO                               225
+  000220                    END-IF.
+  000221                    PERFORM 2500-READ-INPUT.                                              316
+  000222               *****************************************************************
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page     7
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000223               *                    PRINT SALESPERSON INFO                     *
+  000224               *****************************************************************
+  000225                1300-PRNT-SALESPERSON-INFO.
+  000226                    PERFORM 1500-SALESPERSON-CALCULATIONS.                                252
+  000227                    WRITE PRNT-REC FROM WS-EMPLOYEE-DATA AFTER ADVANCING 1 LINE.          19 121
+  000228               *****************************************************************
+  000229               *                   PRINT BRANCH TOTALS INFO                    *
+  000230               *****************************************************************
+  000231                1200-PRNT-BRANCH-TOTALS.
+  000232                    MOVE CAL-BRANCH-TOTAL-GROSS  TO WS-BRANCH-TOTAL-GROSS.                74 90
+  000233                    MOVE CAL-BRANCH-TOTAL-RETURN TO WS-BRANCH-TOTAL-RETURN.               77 92
+  000234                    MOVE CAL-BRANCH-TOTAL-NET    TO WS-BRANCH-TOTAL-NET.                  75 94
+  000235                    MOVE CAL-BRANCH-TOTAL-COMM   TO WS-BRANCH-TOTAL-COMM.                 76 96
+  000236                    WRITE PRNT-REC FROM WS-BRANCH-TOTALS AFTER ADVANCING 1 LINE.          19 85
+  000237                    WRITE PRNT-REC FROM WS-TOTALS-UL AFTER ADVANCING 1 LINE.              19 100
+  000238                    PERFORM 1550-ZERO-BRANCH-TOTALS.                                      300
+  000239               *****************************************************************
+  000240               *                   PRINT BRANCH TOTALS INFO                    *
+  000241               *****************************************************************
+  000242                1400-PRNT-GRAND-TOTALS.
+  000243                    MOVE CAL-GRAND-TOTAL-GROSS   TO WS-GRAND-TOTAL-GROSS.                 78 142
+  000244                    MOVE CAL-GRAND-TOTAL-RETURN  TO WS-GRAND-TOTAL-RETURN.                81 144
+  000245                    MOVE CAL-GRAND-TOTAL-NET     TO WS-GRAND-TOTAL-NET.                   79 146
+  000246                    MOVE CAL-GRAND-TOTAL-COMM    TO WS-GRAND-TOTAL-COMM.                  80 148
+  000247                    WRITE PRNT-REC FROM WS-GRAND-TOTALS AFTER ADVANCING 1 LINE.           19 137
+  000248                    WRITE PRNT-REC FROM WS-DBL-TOTALS-UL AFTER ADVANCING 1 LINE.          19 109
+  000249               *****************************************************************
+  000250               *                   SALESPERSON CALCULATIONS                    *
+  000251               *****************************************************************
+  000252                1500-SALESPERSON-CALCULATIONS.
+  000253                    COMPUTE
+  000254                         CAL-COMMISSION-EARNED ROUNDED = (SALESPERSON-GROSS-SALES         72 28
+  000255                         - SALESPERSON-RETURN-SALES) * SALESPERSON-COMM-RATE              29 31
+  000256                    END-COMPUTE.
+  000257                    COMPUTE
+  000258                         CAL-SALESPERSON-NET = SALESPERSON-GROSS-SALES -                  73 28
+  000259                         SALESPERSON-RETURN-SALES                                         29
+  000260                    END-COMPUTE.
+  000261                    COMPUTE
+  000262                         CAL-BRANCH-TOTAL-GROSS = CAL-BRANCH-TOTAL-GROSS +                74 74
+  000263                         SALESPERSON-GROSS-SALES                                          28
+  000264                    END-COMPUTE.
+  000265                    COMPUTE
+  000266                         CAL-BRANCH-TOTAL-NET = CAL-BRANCH-TOTAL-NET +                    75 75
+  000267                         CAL-SALESPERSON-NET                                              73
+  000268                    END-COMPUTE.
+  000269                    COMPUTE
+  000270                         CAL-BRANCH-TOTAL-RETURN = CAL-BRANCH-TOTAL-RETURN +              77 77
+  000271                         SALESPERSON-RETURN-SALES                                         29
+  000272                    END-COMPUTE.
+  000273                    COMPUTE
+  000274                         CAL-BRANCH-TOTAL-COMM = CAL-BRANCH-TOTAL-COMM +                  76 76
+  000275                         CAL-COMMISSION-EARNED                                            72
+  000276                    END-COMPUTE.
+  000277                    COMPUTE
+  000278                         CAL-GRAND-TOTAL-GROSS = CAL-GRAND-TOTAL-GROSS +                  78 78
+  000279                         SALESPERSON-GROSS-SALES                                          28
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page     8
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000280                    END-COMPUTE.
+  000281                    COMPUTE
+  000282                         CAL-GRAND-TOTAL-NET = CAL-GRAND-TOTAL-NET                        79 79
+  000283                         + CAL-SALESPERSON-NET                                            73
+  000284                    END-COMPUTE.
+  000285                    COMPUTE
+  000286                         CAL-GRAND-TOTAL-RETURN = CAL-GRAND-TOTAL-RETURN +                81 81
+  000287                         SALESPERSON-RETURN-SALES                                         29
+  000288                    END-COMPUTE.
+  000289                    COMPUTE
+  000290                         CAL-GRAND-TOTAL-COMM = CAL-GRAND-TOTAL-COMM +                    80 80
+  000291                         CAL-COMMISSION-EARNED                                            72
+  000292                    END-COMPUTE.
+  000293                    MOVE SALESPERSON-LAST-NAME TO WS-EMPLOYEE-LASTNAME.                   26 123
+  000294                    MOVE SALESPERSON-FIRST-NAME TO WS-EMPLOYEE-FIRSTNAME.                 27 125
+  000295                    MOVE SALESPERSON-GROSS-SALES TO WS-EMPLOYEE-GROSS.                    28 127
+  000296                    MOVE SALESPERSON-RETURN-SALES TO WS-EMPLOYEE-RETURNS.                 29 129
+  000297                    MOVE CAL-COMMISSION-EARNED TO WS-EMPLOYEE-COMM.                       72 133
+  000298                    MOVE CAL-SALESPERSON-NET TO WS-EMPLOYEE-NET.                          73 131
+  000299               *    ZERO OUT BRANCH FIELDS
+  000300                1550-ZERO-BRANCH-TOTALS.
+  000301                    COMPUTE
+  000302                         CAL-BRANCH-TOTAL-GROSS = ZERO                                    74 IMP
+  000303                    END-COMPUTE.
+  000304                    COMPUTE
+  000305                         CAL-BRANCH-TOTAL-NET = ZERO                                      75 IMP
+  000306                    END-COMPUTE.
+  000307                    COMPUTE
+  000308                         CAL-BRANCH-TOTAL-COMM = ZERO                                     76 IMP
+  000309                    END-COMPUTE.
+  000310                    COMPUTE
+  000311                         CAL-BRANCH-TOTAL-RETURN = ZERO                                   77 IMP
+  000312                    END-COMPUTE.
+  000313               ******************************************************************
+  000314               *                     READS THE INPUT FILE                       *
+  000315               ******************************************************************
+  000316                2500-READ-INPUT.
+  000317                    READ INPUT-FILE INTO SALESPERSON-MASTER                               15 24
+  000318      1                AT END MOVE 1 TO EOF-I.                                            154
+  000319
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page     9
+An "M" preceding a data-name reference indicates that the data-name is modified by this reference.
+ 
+ Defined   Cross-reference of data names   References
+ 
+     156   BREAK-FIELD. . . . . . . . . .  M179 208 M216
+      76   CAL-BRANCH-TOTAL-COMM. . . . .  235 M274 274 M308
+      74   CAL-BRANCH-TOTAL-GROSS . . . .  232 M262 262 M302
+      75   CAL-BRANCH-TOTAL-NET . . . . .  234 M266 266 M305
+      77   CAL-BRANCH-TOTAL-RETURN. . . .  233 M270 270 M311
+      72   CAL-COMMISSION-EARNED. . . . .  M254 275 291 297
+      80   CAL-GRAND-TOTAL-COMM . . . . .  246 M290 290
+      78   CAL-GRAND-TOTAL-GROSS. . . . .  243 M278 278
+      79   CAL-GRAND-TOTAL-NET. . . . . .  245 M282 282
+      81   CAL-GRAND-TOTAL-RETURN . . . .  244 M286 286
+      73   CAL-SALESPERSON-NET. . . . . .  M258 267 283 298
+     154   EOF-I. . . . . . . . . . . . .  183 M318
+     155   IN-STATUS. . . . . . . . . . .  9 171 173
+      15   INPUT-FILE . . . . . . . . . .  8 169 317
+      16   INPUT-REC
+     149   MISC
+      18   PRNT-FILE. . . . . . . . . . .  10 170 187
+      19   PRNT-REC . . . . . . . . . . .  M195 M196 M197 M198 M227 M236 M237 M247 M248
+      71   SALES-CALC-FIELDS
+      30   SALESPERSON-BRANCH-NO. . . . .  179 180 181 208 213 214 216
+      31   SALESPERSON-COMM-RATE. . . . .  255
+      27   SALESPERSON-FIRST-NAME . . . .  294
+      28   SALESPERSON-GROSS-SALES. . . .  254 258 263 279 295
+      26   SALESPERSON-LAST-NAME. . . . .  293
+      24   SALESPERSON-MASTER . . . . . .  M317
+      25   SALESPERSON-NO
+      29   SALESPERSON-RETURN-SALES . . .  255 259 271 287 296
+      88   WS-BRANCH-NO . . . . . . . . .  M180 M213
+      54   WS-BRANCH-NUMBER . . . . . . .  M181 M214
+      96   WS-BRANCH-TOTAL-COMM . . . . .  M235
+      90   WS-BRANCH-TOTAL-GROSS. . . . .  M232
+      94   WS-BRANCH-TOTAL-NET. . . . . .  M234
+      92   WS-BRANCH-TOTAL-RETURN . . . .  M233
+      85   WS-BRANCH-TOTALS . . . . . . .  236
+     163   WS-CD-DAY. . . . . . . . . . .  202
+     162   WS-CD-MONTH. . . . . . . . . .  201
+     161   WS-CD-YEAR . . . . . . . . . .  203
+     160   WS-CURRENT-DATE. . . . . . . .  M200 200
+     109   WS-DBL-TOTALS-UL . . . . . . .  248
+     133   WS-EMPLOYEE-COMM . . . . . . .  M297
+     121   WS-EMPLOYEE-DATA . . . . . . .  227
+     125   WS-EMPLOYEE-FIRSTNAME. . . . .  M294
+     127   WS-EMPLOYEE-GROSS. . . . . . .  M295
+     123   WS-EMPLOYEE-LASTNAME . . . . .  M293
+     131   WS-EMPLOYEE-NET. . . . . . . .  M298
+     129   WS-EMPLOYEE-RETURNS. . . . . .  M296
+     148   WS-GRAND-TOTAL-COMM. . . . . .  M246
+     142   WS-GRAND-TOTAL-GROSS . . . . .  M243
+     146   WS-GRAND-TOTAL-NET . . . . . .  M245
+     144   WS-GRAND-TOTAL-RETURN. . . . .  M244
+     137   WS-GRAND-TOTALS. . . . . . . .  247
+      35   WS-HEADING-LINE-1. . . . . . .  195
+      47   WS-HEADING-LINE-2. . . . . . .  196
+      51   WS-HEADING-LINE-3. . . . . . .  197
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page    10
+ Defined   Cross-reference of data names   References
+ 
+      55   WS-HEADING-LINE-4. . . . . . .  198
+      44   WS-HL1-DAY . . . . . . . . . .  M202
+      42   WS-HL1-MONTH . . . . . . . . .  M201
+      38   WS-HL1-PAGENO. . . . . . . . .  M177 M210 210
+      46   WS-HL1-YEAR. . . . . . . . . .  M203
+     100   WS-TOTALS-UL . . . . . . . . .  237
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page    11
+Context usage is indicated by the letter preceding a procedure-name reference.
+These letters and their meanings are:
+    A = ALTER (procedure-name)
+    D = GO TO (procedure-name) DEPENDING ON
+    E = End of range of (PERFORM) through (procedure-name)
+    G = GO TO (procedure-name)
+    P = PERFORM (procedure-name)
+    T = (ALTER) TO PROCEED TO (procedure-name)
+    U = USE FOR DEBUGGING (procedure-name)
+ 
+ Defined   Cross-reference of procedures   References
+ 
+     199   U100-FORMAT-DATE . . . . . . .  P194
+     168   000-MAINLINE
+     193   1000-PRNT-HEADING. . . . . . .  P182 P215
+     207   1100-PRNT-TABLE. . . . . . . .  P183
+     231   1200-PRNT-BRANCH-TOTALS. . . .  P184 P209
+     225   1300-PRNT-SALESPERSON-INFO . .  P217 P219
+     242   1400-PRNT-GRAND-TOTALS . . . .  P185
+     252   1500-SALESPERSON-CALCULATIONS.  P226
+     300   1550-ZERO-BRANCH-TOTALS. . . .  P238
+     316   2500-READ-INPUT. . . . . . . .  P178 P221
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page    12
+ Defined   Cross-reference of programs     References
+ 
+       2   LAB5
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 05/12/2023  Time 19:54:24   Page    13
+LineID  Message code  Message text
+ 
+    15  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "INPUT-FILE".
+ 
+    18  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "PRNT-FILE".
+Messages    Total    Informational    Warning    Error    Severe    Terminating
+Printed:       2           2
+* Statistics for COBOL program LAB5:
+*    Source records = 319
+*    Data Division statements = 58
+*    Procedure Division statements = 72
+*    Generated COBOL statements = 0
+*    Program complexity factor = 76
+End of compilation 1,  program LAB5,  highest severity 0.
+Return code 0
+z/OS V2 R4 BINDER     19:54:26 FRIDAY MAY 12, 2023
+BATCH EMULATOR  JOB(LAB5    ) STEP(S1      ) PGM= IEWBLINK  PROCEDURE(LKED    )
+ 
+ 
+ 
+                                *** O P E R A T I O N   S U M M A R Y   R E P O R T ***
+ 
+PROCESSING OPTIONS:
+ 
+   ALIASES             NO
+   ALIGN2              NO
+   AMODE               UNSPECIFIED
+   CALL                YES
+   CASE                UPPER
+   COMPAT              UNSPECIFIED
+   COMPRESS            AUTO
+   DCBS                NO
+   DYNAM               NO
+   EXTATTR             UNSPECIFIED
+   EXITS:              NONE
+   FILL                NONE
+   GID                 UNSPECIFIED
+   HOBSET              NO
+   INFO                NO
+   LET                 04
+   LINECT              060
+   LIST                SUMMARY
+   LISTPRIV            NO
+   LONGPARM            NO
+   MAP                 NO
+   MAXBLK              032760
+   MODMAP              NO
+   MSGLEVEL            00
+   OVLY                NO
+   PRINT               YES
+   RES                 NO
+   REUSABILITY         UNSPECIFIED
+   RMODE               UNSPECIFIED
+   RMODEX              NO
+   SIGN                NO
+   STORENX             NOREPLACE
+   STRIPCL             NO
+   STRIPSEC            NO
+   SYMTRACE
+   TERM                NO
+   TRAP                ON
+   UID                 UNSPECIFIED
+   UPCASE              NO
+   WKSPACE             000000K,000000K
+   XCAL                NO
+   XREF                NO
+   ***END OF OPTIONS***
+ 
+ 
+ 
+ 
+SAVE OPERATION SUMMARY:
+ 
+   MEMBER NAME         LAB5
+   LOAD LIBRARY        KC03CB3.LOAD
+   PROGRAM TYPE        PROGRAM OBJECT(FORMAT 3)
+   VOLUME SERIAL       KCTR26
+   DISPOSITION         REPLACED
+   TIME OF SAVE        19.54.26  MAY 12, 2023
+ 
+ 
+SAVE MODULE ATTRIBUTES:
+ 
+   AC                  000
+   AMODE                31
+   COMPRESSION         NONE
+   DC                  NO
+   EDITABLE            YES
+   EXCEEDS 16MB        NO
+   EXECUTABLE          YES
+   LONGPARM            NO
+   MIGRATABLE          NO
+   OL                  NO
+   OVLY                NO
+   PACK,PRIME          NO,NO
+   PAGE ALIGN          NO
+   REFR                NO
+   RENT                NO
+   REUS                NO
+   RMODE               ANY
+   SCTR                NO
+   SIGN                NO
+   SSI
+   SYM GENERATED       NO
+   TEST                NO
+   XPLINK              NO
+   MODULE SIZE (HEX)   0000307C
+   DASD SIZE (HEX)     0000C000
+ 
+ 
+ ENTRY POINT AND ALIAS SUMMARY:
+ 
+ NAME:            ENTRY TYPE AMODE C_OFFSET CLASS NAME        STATUS
+ 
+ LAB5              MAIN_EP      31 00000000 C_CODE
+ 
+                         *** E N D   O F   O P E R A T I O N   S U M M A R Y   R E P O R T ***
+ 
+ 
+ 
+ 
+z/OS V2 R4 BINDER     19:54:26 FRIDAY MAY 12, 2023
+BATCH EMULATOR  JOB(LAB5    ) STEP(S1      ) PGM= IEWBLINK  PROCEDURE(LKED    )
+IEW2008I 0F03 PROCESSING COMPLETED.  RETURN CODE =  0.
+ 
+ 
+ 
+----------------------
+MESSAGE SUMMARY REPORT
+----------------------
+ TERMINAL MESSAGES      (SEVERITY = 16)
+ NONE
+ 
+ SEVERE MESSAGES        (SEVERITY = 12)
+ NONE
+ 
+ ERROR MESSAGES         (SEVERITY = 08)
+ NONE
+ 
+ WARNING MESSAGES       (SEVERITY = 04)
+ NONE
+ 
+ INFORMATIONAL MESSAGES (SEVERITY = 00)
+ 2008
+ 
+ 
+ **** END OF MESSAGE SUMMARY REPORT ****
+ 
+     PAGE   1                             ABC CORPORATION                           05/12/2023
+                                       SALESPERSON BY BRANCH
+   BRANCH: 100
+   LAST NAME         FIRST NAME     GROSS SALES         RETURNS       NET SALES      COMMISSION
+   Guerette          Gavin           $63,222.23       $4,244.32      $58,977.91       $1,963.96
+   Orlando           Randolph        $70,814.29         $322.58      $70,491.71       $2,072.46
+   Rowan             Eileen          $77,317.12         $838.83      $76,478.29       $3,059.13
+   DeGaetano         Catherine       $41,516.79         $231.82      $41,284.97       $1,589.47
+   Flynn             Ashley          $77,374.53         $127.38      $77,247.15       $2,572.33
+   Hau               Jayne           $70,896.27          $13.29      $70,882.98       $1,694.10
+   Steele            Karen           $77,360.06         $128.99      $77,231.07       $2,602.69
+   Baker             Anna            $70,834.11         $443.37      $70,390.74       $2,660.77
+   Appel             Anne            $70,813.31         $210.11      $70,603.20       $2,577.02
+   Patchik           Joseph          $21,952.56         $117.54      $21,835.02         $842.83
+   Banasiak          Nancy           $70,840.52       $1,113.91      $69,726.61       $2,091.80
+   TOTAL BRANCH 100                 $712,941.79       $7,792.14     $705,149.65      $23,726.56
+                                  -------------      ----------   -------------    ------------
+     PAGE   2                             ABC CORPORATION                           05/12/2023
+                                       SALESPERSON BY BRANCH
+   BRANCH: 200
+   LAST NAME         FIRST NAME     GROSS SALES         RETURNS       NET SALES      COMMISSION
+   Mosak             Brian           $31,272.01         $236.73      $31,035.28       $1,170.03
+   Doherty           Derek           $31,211.71         $124.23      $31,087.48       $1,025.89
+   Anderson          Susan           $81,512.17         $910.77      $80,601.40       $2,933.89
+   Ziccardi          Brandon         $70,861.70         $251.03      $70,610.67       $2,492.56
+   Marcus            Aili            $70,892.09       $1,098.29      $69,793.80       $2,463.72
+   Brockmann         Nelson          $21,901.02         $121.92      $21,779.10         $622.88
+   Corbett           Lynn            $70,883.22         $111.98      $70,771.24       $1,542.81
+   VanLanen          Joanna          $77,396.44         $123.07      $77,273.37       $1,684.56
+   King              Bryan           $31,275.98       $1,119.41      $30,156.57         $889.62
+   McGannon          Margaret        $63,079.20         $219.61      $62,859.59       $2,156.08
+   Canario           Margaret        $70,821.91         $667.13      $70,154.78       $2,707.97
+   Cavaretta         Katherine       $63,009.61       $2,002.16      $61,007.45       $2,031.55
+   Orlando           Catherine       $70,891.86         $320.99      $70,570.87       $2,822.83
+   Appel             Judy            $84,761.77       $3,003.36      $81,758.41         $997.45
+   Kimble            Kathleen        $31,205.09         $122.04      $31,083.05       $1,019.52
+   Fricker           Kathleen        $77,342.92         $447.27      $76,895.65       $2,983.55
+   Moreno            Jan             $70,863.41       $1,224.65      $69,638.76       $2,590.56
+   Jordan            John            $31,214.64         $323.27      $30,891.37       $1,130.62
+   Manahan           Clifford        $70,888.88       $3,003.23      $67,885.65       $2,511.77
+   DeMatteo          Michele         $70,801.53         $112.31      $70,689.22       $2,785.16
+   Lee               Christine       $70,880.57         $118.77      $70,761.80       $2,151.16
+   Lee               Genoa           $70,838.59         $216.40      $70,622.19       $1,412.44
+   Race              JoAnn           $31,235.05       $2,007.19      $29,227.86       $1,166.19
+   Marek             Jonathan        $21,906.84       $1,222.94      $20,683.90         $709.46
+   Poradzisz         Scott           $31,272.88         $125.93      $31,146.95         $750.64
+   TOTAL BRANCH 200               $1,418,221.09      $19,234.68   $1,398,986.41      $44,752.91
+                                  -------------      ----------   -------------    ------------
+     PAGE   3                             ABC CORPORATION                           05/12/2023
+                                       SALESPERSON BY BRANCH
+   BRANCH: 300
+   LAST NAME         FIRST NAME     GROSS SALES         RETURNS       NET SALES      COMMISSION
+   Rotatori          Cynthia         $81,571.56       $1,129.49      $80,442.07       $2,059.32
+   Kredens           Richard         $70,883.33         $433.22      $70,450.11       $2,254.40
+   Gencius           Daniel          $70,827.29         $213.97      $70,613.32       $2,570.32
+   Novak             Mary            $21,955.95       $2,004.47      $19,951.48         $754.17
+   Natanek           Maureen         $63,025.63       $1,116.01      $61,909.62       $1,219.62
+   Pukala            Yasmeen         $81,525.57       $2,002.81      $79,522.76       $2,926.44
+   DeRenzo           Dianne          $70,878.78       $2,006.74      $68,872.04       $2,265.89
+   Randol            Johnnette       $70,812.82           $5.62      $70,807.20       $2,492.41
+   Kowalski          Laurence        $63,079.12         $125.51      $62,953.61       $2,404.83
+   Ade               Julie           $70,872.23       $2,118.71      $68,753.52       $2,323.87
+   Roe               Brian           $63,056.32         $211.51      $62,844.81       $1,954.47
+   Read              Mac             $31,259.91       $1,008.67      $30,251.24         $871.24
+   Solpa             Amanda          $31,229.54         $112.39      $31,117.15         $830.83
+   De Vita           Sharon          $31,263.67         $321.50      $30,942.17       $1,194.37
+   Obradovic         Rita            $70,810.19         $117.64      $70,692.55       $2,509.59
+   McMahon           Margaret        $70,833.26         $213.48      $70,619.78       $2,160.97
+   Wogan             Myron           $70,821.56         $313.60      $70,507.96       $2,362.02
+   Price             Ruth            $70,867.54          $91.51      $70,776.03       $2,293.14
+   Boudos            Lynn            $70,818.58         $114.78      $70,703.80       $2,333.23
+   Goodfellow        Gale            $63,086.72       $1,113.34      $61,973.38       $2,274.42
+   Broderick         Cathleen        $70,897.61       $2,108.55      $68,789.06       $2,118.70
+   Gruca             Loretta         $84,766.34         $149.42      $84,616.92       $2,073.11
+   Streeter          Farhad          $70,827.22         $122.26      $70,704.96       $1,470.66
+   Serbins           Michael         $77,328.83         $324.16      $77,004.67       $2,263.94
+   Klick             Dick            $84,780.50       $1,108.26      $83,672.24       $2,585.47
+   O'Malley          Kathleen        $21,932.37         $412.78      $21,519.59         $839.26
+   Bogacz            Martin          $84,736.01         $141.77      $84,594.24       $2,918.50
+   Vogel             Sandra          $81,592.56         $220.08      $81,372.48       $2,848.04
+   Eaheart           Joette          $84,770.71         $121.98      $84,648.73       $3,140.47
+   Ehlers            Joan            $81,508.22         $217.23      $81,290.99       $2,454.99
+   Thier             Donna           $70,843.22         $314.30      $70,528.92       $2,369.77
+   Eaheart           Beatrice        $84,773.35         $325.91      $84,447.44       $2,668.54
+   Boyer             Cathie          $21,954.42         $149.56      $21,804.86         $741.37
+   Minet             Augustus        $70,822.23       $1,114.65      $69,707.58       $2,579.18
+   Breems            Mark            $70,843.04         $768.09      $70,074.95       $2,676.86
+   TOTAL BRANCH 300               $2,301,856.20      $22,373.97   $2,279,482.23      $73,804.41
+                                  -------------      ----------   -------------    ------------
+     PAGE   4                             ABC CORPORATION                           05/12/2023
+                                       SALESPERSON BY BRANCH
+   BRANCH: 400
+   LAST NAME         FIRST NAME     GROSS SALES         RETURNS       NET SALES      COMMISSION
+   Woodrow           Ursula          $70,829.51         $339.75      $70,489.76       $2,368.46
+   Boyer             Kenneth         $21,956.71         $339.99      $21,616.72         $667.96
+   O'Callaghan       Kenyon          $84,745.68         $780.54      $83,965.14       $3,325.02
+   McCoy             Hanah           $70,888.16         $212.62      $70,675.54       $2,127.33
+   Waymel            Bradley         $70,826.89       $1,544.99      $69,281.90       $2,681.21
+   Wood              Ann             $70,819.73         $218.50      $70,601.23       $1,800.33
+   Dugan             Holly           $70,849.47       $1,112.20      $69,737.27       $2,182.78
+   Gehl              Adriane         $70,872.21         $126.81      $70,745.40       $2,447.79
+   McCabe            Jason           $63,047.70       $4,206.87      $58,840.83       $2,288.91
+   Bond              Patricia        $70,838.71         $436.47      $70,402.24       $2,485.20
+   Vilella           Reza            $70,816.43       $1,657.99      $69,158.44       $2,275.31
+   Werderitch        Carol           $63,034.63         $125.06      $62,909.57       $1,981.65
+   TOTAL BRANCH 400                 $799,525.83      $11,101.79     $788,424.04      $26,631.95
+                                  -------------      ----------   -------------    ------------
+     PAGE   5                             ABC CORPORATION                           05/12/2023
+                                       SALESPERSON BY BRANCH
+   BRANCH: 500
+   LAST NAME         FIRST NAME     GROSS SALES         RETURNS       NET SALES      COMMISSION
+   Theis             Sean            $31,277.95         $216.56      $31,061.39       $1,226.92
+   Dube              Jason           $31,242.51         $980.08      $30,262.43         $983.53
+   Mohammadi         Mary            $70,801.70         $211.51      $70,590.19       $2,618.90
+   Reed              Margaret        $77,376.36         $321.77      $77,054.59       $2,481.16
+   Gibbs             Janelle         $81,585.98         $113.35      $81,472.63       $2,973.75
+   Crean             Kathleen        $77,323.99         $329.59      $76,994.40       $2,671.71
+   Roe               Eileen          $70,824.38         $118.83      $70,705.55       $2,785.80
+   Holtz             Rachel          $63,072.26         $127.09      $62,945.17       $2,517.81
+   Hazard            Mary            $70,807.16       $1,121.74      $69,685.42       $2,209.03
+   Ford              Dalia           $77,331.45       $1,326.30      $76,005.15       $1,565.71
+   Doherty           Elizabeth       $81,593.90         $211.72      $81,382.18       $2,465.88
+   Stockover         Nancy           $70,823.37         $112.03      $70,711.34       $2,149.62
+   TOTAL BRANCH 500                 $804,061.01       $5,190.57     $798,870.44      $26,649.82
+                                  -------------      ----------   -------------    ------------
+   COMPANY TOTALS                 $6,036,605.92      $65,693.15   $5,970,912.77     $195,565.65
+                                  =============      ==========   =============    ============
