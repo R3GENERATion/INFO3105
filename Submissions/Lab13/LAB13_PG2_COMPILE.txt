@@ -1,0 +1,1187 @@
+                   J E S 2  J O B  L O G  --  S Y S T E M  8 5 6 1  --  N O D E  S V S C J E S 2
+ 
+19.53.40 JOB07941 ---- WEDNESDAY, 07 JUN 2023 ----
+19.53.40 JOB07941  IRR010I  USERID KC03CB3  IS ASSIGNED TO THIS JOB.
+19.53.40 JOB07941  IEF677I WARNING MESSAGE(S) FOR JOB JCS2CPR2 ISSUED
+19.53.42 JOB07941  ICH70001I KC03CB3  LAST ACCESS AT 19:50:25 ON WEDNESDAY, JUNE 7, 2023
+19.53.42 JOB07941  $HASP373 JCS2CPR2 STARTED - INIT 1    - CLASS A        - SYS 8561
+19.53.46 JOB07941  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+19.53.46 JOB07941  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+19.53.46 JOB07941  -S1       COBOL       00  16180    565       .00       .00     .0           121  BATCH        0     0     0     0
+19.53.46 JOB07941  -S1       LKED        00    321     40       .00       .00     .0            58  BATCH        0     0     0     0
+19.53.47 JOB07941  -JCS2CPR2 ENDED.  NAME-                     TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+19.53.47 JOB07941  $HASP395 JCS2CPR2 ENDED - RC=0000
+------ JES2 JOB STATISTICS ------
+  07 JUN 2023 JOB EXECUTION DATE
+            8 CARDS READ
+        1,193 SYSOUT PRINT RECORDS
+            0 SYSOUT PUNCH RECORDS
+           87 SYSOUT SPOOL KBYTES
+         0.10 MINUTES EXECUTION TIME
+        1 //JCS2CPR2 JOB 1,NOTIFY=&SYSUID                                         JOB07941
+          IEFC653I SUBSTITUTION JCL - 1,NOTIFY=KC03CB3
+        2 //S1 EXEC IGYWCL,PARM.COBOL='TEST,XREF'
+        3 XXIGYWCL PROC  LNGPRFX='IGY630',                                        00001000
+          XX             LIBPRFX='CEE',                                           00002000
+          XX             PGMLIB='&&GOSET',GOPGM=GO                                00003000
+          XX*                                                                     00004000
+          XX********************************************************************* 00005000
+          XX*                                                                   * 00006000
+          XX*  IBM Enterprise COBOL for z/OS                                    * 00007000
+          XX*               Version 6 Release 3 Modification 0                  * 00008000
+          XX*                                                                   * 00009000
+          XX*  LICENSED MATERIALS - PROPERTY OF IBM.                            * 00010000
+          XX*                                                                   * 00011000
+          XX*  5655-EC6 COPYRIGHT IBM CORP. 1983, 2019                          * 00012000
+          XX*                                                                   * 00013000
+          XX*  US GOVERNMENT USERS RESTRICTED RIGHTS - USE,                     * 00014000
+          XX*  DUPLICATION OR DISCLOSURE RESTRICTED BY GSA                      * 00015000
+          XX*  ADP SCHEDULE CONTRACT WITH IBM CORP.                             * 00016000
+          XX*                                                                   * 00017000
+          XX********************************************************************* 00018000
+          XX*                                                                     00019000
+          XX*  COMPILE AND LINK EDIT A COBOL PROGRAM                              00020000
+          XX*                                                                     00021000
+          XX*  PARAMETER  DEFAULT VALUE    USAGE                                  00022000
+          XX*   LNGPRFX   IGY.V6R3M0       PREFIX FOR LANGUAGE DATA SET NAMES     00023000
+          XX*   LIBPRFX   CEE              PREFIX FOR LIBRARY DATA SET NAMES      00024000
+          XX*   PGMLIB    &&GOSET          DATA SET NAME FOR LOAD MODULE          00025000
+          XX*   GOPGM     GO               MEMBER NAME FOR LOAD MODULE            00026000
+          XX*                                                                     00027000
+          XX*  CALLER MUST SUPPLY //COBOL.SYSIN DD ...                            00028000
+          XX*                                                                     00029000
+          XX*  CALLER MUST ALSO SUPPLY //COBOL.SYSLIB DD ... for COPY statements  00030000
+          XX*                                                                     00031000
+          XX*  NOTE:  SYSUT* datasets must be single-volume datasets              00032000
+          XX*                                                                     00033000
+        4 XXCOBOL  EXEC PGM=IGYCRCTL,REGION=0M                                    00034000
+        5 XXSTEPLIB  DD  DSNAME=&LNGPRFX..SIGYCOMP,DISP=SHR                       00035000
+          IEFC653I SUBSTITUTION JCL - DSNAME=IGY630.SIGYCOMP,DISP=SHR
+        6 XX         DD  DSNAME=&LIBPRFX..SCEERUN,DISP=SHR                        00036000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEERUN,DISP=SHR
+        7 XX         DD  DSNAME=&LIBPRFX..SCEERUN2,DISP=SHR                       00037000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEERUN2,DISP=SHR
+        8 XXSYSPRINT DD  SYSOUT=*                                                 00038000
+        9 XXSYSLIN   DD  DSNAME=&&LOADSET,UNIT=SYSALLDA,                          00039000
+          XX             DISP=(MOD,PASS),SPACE=(CYL,(1,1)),VOL=(,,,1)             00040000
+       10 XXSYSUT1   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00041000
+       11 XXSYSUT2   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00042000
+       12 XXSYSUT3   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00043000
+       13 XXSYSUT4   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00044000
+       14 XXSYSUT5   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00045000
+       15 XXSYSUT6   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00046000
+       16 XXSYSUT7   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00047000
+       17 XXSYSUT8   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00048000
+       18 XXSYSUT9   DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00049000
+       19 XXSYSUT10  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00050000
+       20 XXSYSUT11  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00051000
+       21 XXSYSUT12  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00052000
+       22 XXSYSUT13  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00053000
+       23 XXSYSUT14  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00054000
+       24 XXSYSUT15  DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00055000
+       25 XXSYSMDECK DD  UNIT=SYSALLDA,SPACE=(CYL,(1,1)),VOL=(,,,1)               00056000
+       26 //SYSLIB DD DSN=&SYSUID..COPY(CCS2SLSP),DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.COPY(CCS2SLSP),DISP=SHR
+       27 //SYSLIB DD DSN=&SYSUID..COPY(CCS2SLSW),DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.COPY(CCS2SLSW),DISP=SHR
+       28 //SYSLIB DD DSN=&SYSUID..COPY(CCS2SLST),DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.COPY(CCS2SLST),DISP=SHR
+       29 //SLSPKS  DD DSN=&SYSUID..SLSPKSDS,DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.SLSPKSDS,DISP=SHR
+       30 //COBOL.SYSIN DD DSN=&SYSUID..COBOL(PCS2PRG2),DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.COBOL(PCS2PRG2),DISP=SHR
+       31 XXLKED   EXEC PGM=IEWBLINK,COND=(8,LT,COBOL),REGION=0M                  00057000
+       32 XXSYSLIB   DD  DSNAME=&LIBPRFX..SCEELKEX,DISP=SHR                       00058000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEELKEX,DISP=SHR
+       33 XX         DD  DSNAME=&LIBPRFX..SCEELKED,DISP=SHR                       00059000
+          IEFC653I SUBSTITUTION JCL - DSNAME=CEE.SCEELKED,DISP=SHR
+       34 XXSYSPRINT DD  SYSOUT=*                                                 00060000
+       35 XXSYSLIN   DD  DSNAME=&&LOADSET,DISP=(OLD,DELETE)                       00061000
+       36 XX         DD  DDNAME=SYSIN                                             00062000
+       37 //LKED.SYSLMOD DD DSN=&SYSUID..LOAD(PCS2PRG2),DISP=SHR
+          IEFC653I SUBSTITUTION JCL - DSN=KC03CB3.LOAD(PCS2PRG2),DISP=SHR
+          X/SYSLMOD  DD  DSNAME=&PGMLIB(&GOPGM),                                  00063000
+          X/             SPACE=(CYL,(1,1,1)),                                     00064000
+          X/             UNIT=SYSALLDA,DISP=(MOD,PASS),DSNTYPE=LIBRARY            00065000
+          IEFC653I SUBSTITUTION JCL - DSNAME=&&GOSET(GO),SPACE=(CYL,(1,1,1)),UNIT=SYSALLDA,DISP=(MOD,PASS),
+          DSNTYPE=LIBRARY
+ STMT NO. MESSAGE
+        2 IEFC001I PROCEDURE IGYWCL WAS EXPANDED USING SYSTEM LIBRARY SVTSC.PROCLIB
+       37 IEF686I DDNAME REFERRED TO ON DDNAME KEYWORD IN PRIOR STEP WAS NOT RESOLVED
+ICH70001I KC03CB3  LAST ACCESS AT 19:50:25 ON WEDNESDAY, JUNE 7, 2023
+IEFA111I JCS2CPR2 IS USING THE FOLLOWING JOB RELATED SETTINGS:
+         SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+IEF236I ALLOC. FOR JCS2CPR2 COBOL S1
+IEF237I 1A76 ALLOCATED TO STEPLIB
+IEF237I 1001 ALLOCATED TO
+IEF237I 1001 ALLOCATED TO
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IGD101I SMS ALLOCATED TO DDNAME (SYSLIN  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.LOADSET.H01 )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT1  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121622    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT2  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121623    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT3  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121624    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT4  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121625    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT5  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121626    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT6  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121627    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT7  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121628    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT8  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121629    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT9  )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121630    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT10 )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121631    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT11 )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121632    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT12 )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121633    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT13 )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121634    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT14 )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121635    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSUT15 )
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121636    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD101I SMS ALLOCATED TO DDNAME (SYSMDECK)
+        DSN (SYS23158.T195340.RA000.JCS2CPR2.R0121637    )
+        STORCLAS (TEMPSC) MGMTCLAS (        ) DATACLAS (        )
+        VOL SER NOS= TEMP00
+IGD103I SMS ALLOCATED TO DDNAME SYSLIB
+IGD103I SMS ALLOCATED TO DDNAME SYSLIB
+IGD103I SMS ALLOCATED TO DDNAME SYSLIB
+IGD103I SMS ALLOCATED TO DDNAME SLSPKS
+IGD103I SMS ALLOCATED TO DDNAME SYSIN
+IEF237I JES2 ALLOCATED TO SYS00001
+IEF285I   KC03CB3.JCS2CPR2.JOB07941.D0000103.?         SYSOUT
+IEF142I JCS2CPR2 COBOL S1 - STEP WAS EXECUTED - COND CODE 0000
+IEF285I   IGY630.SIGYCOMP                              KEPT
+IEF285I   VOL SER NOS= VTIGYL.
+IEF285I   CEE.SCEERUN                                  KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   CEE.SCEERUN2                                 KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   KC03CB3.JCS2CPR2.JOB07941.D0000101.?         SYSOUT
+IGD106I SYS23158.T195340.RA000.JCS2CPR2.LOADSET.H01  PASSED,    DDNAME=SYSLIN
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121622     DELETED,   DDNAME=SYSUT1
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121623     DELETED,   DDNAME=SYSUT2
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121624     DELETED,   DDNAME=SYSUT3
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121625     DELETED,   DDNAME=SYSUT4
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121626     DELETED,   DDNAME=SYSUT5
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121627     DELETED,   DDNAME=SYSUT6
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121628     DELETED,   DDNAME=SYSUT7
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121629     DELETED,   DDNAME=SYSUT8
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121630     DELETED,   DDNAME=SYSUT9
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121631     DELETED,   DDNAME=SYSUT10
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121632     DELETED,   DDNAME=SYSUT11
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121633     DELETED,   DDNAME=SYSUT12
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121634     DELETED,   DDNAME=SYSUT13
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121635     DELETED,   DDNAME=SYSUT14
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121636     DELETED,   DDNAME=SYSUT15
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.R0121637     DELETED,   DDNAME=SYSMDECK
+IGD104I KC03CB3.COPY                                 RETAINED,  DDNAME=SYSLIB
+IGD104I KC03CB3.COPY                                 RETAINED,  DDNAME=SYSLIB
+IGD104I KC03CB3.COPY                                 RETAINED,  DDNAME=SYSLIB
+IGD104I KC03CB3.SLSPKSDS                             RETAINED,  DDNAME=SLSPKS
+IGD104I KC03CB3.COBOL                                RETAINED,  DDNAME=SYSIN
+IEF373I STEP/COBOL   /START 2023158.1953
+IEF032I STEP/COBOL   /STOP  2023158.1953
+        CPU:     0 HR  00 MIN  00.06 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+        VIRT:   532K  SYS:   520K  EXT:   146444K  SYS:    15952K
+        ATB- REAL:                 10164K  SLOTS:                     0K
+             VIRT- ALLOC:     535M SHRD:       0M
+IEF236I ALLOC. FOR JCS2CPR2 LKED S1
+IEF237I 1001 ALLOCATED TO SYSLIB
+IEF237I 1001 ALLOCATED TO
+IEF237I JES2 ALLOCATED TO SYSPRINT
+IGD103I SMS ALLOCATED TO DDNAME SYSLIN
+IEF237I DMY  ALLOCATED TO
+IGD103I SMS ALLOCATED TO DDNAME SYSLMOD
+IEF142I JCS2CPR2 LKED S1 - STEP WAS EXECUTED - COND CODE 0000
+IEF285I   CEE.SCEELKEX                                 KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   CEE.SCEELKED                                 KEPT
+IEF285I   VOL SER NOS= VTMVSC.
+IEF285I   KC03CB3.JCS2CPR2.JOB07941.D0000102.?         SYSOUT
+IGD105I SYS23158.T195340.RA000.JCS2CPR2.LOADSET.H01  DELETED,   DDNAME=SYSLIN
+IGD104I KC03CB3.LOAD                                 RETAINED,  DDNAME=SYSLMOD
+IEF373I STEP/LKED    /START 2023158.1953
+IEF032I STEP/LKED    /STOP  2023158.1953
+        CPU:     0 HR  00 MIN  00.01 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+        VIRT:    88K  SYS:   276K  EXT:     1768K  SYS:    12068K
+        ATB- REAL:                  1080K  SLOTS:                     0K
+             VIRT- ALLOC:      17M SHRD:       0M
+IEF375I  JOB/JCS2CPR2/START 2023158.1953
+IEF033I  JOB/JCS2CPR2/STOP  2023158.1953
+        CPU:     0 HR  00 MIN  00.07 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115                 Date 06/07/2023  Time 19:53:44   Page     1
+Invocation parameters:
+ TEST,XREF
+Options in effect:
+ NOADATA
+   ADV
+   AFP(NOVOLATILE)
+   QUOTE
+   ARCH(8)
+   ARITH(COMPAT)
+ NOAWO
+ NOBLOCK0
+   BUFSIZE(4096)
+ NOCICS
+   CODEPAGE(1140)
+ NOCOMPILE(S)
+ NOCOPYLOC
+ NOCOPYRIGHT
+ NOCURRENCY
+   DATA(31)
+   DBCS
+ NODECK
+ NODEFINE
+ NODIAGTRUNC
+   DISPSIGN(COMPAT)
+ NODLL
+ NODUMP
+ NODYNAM
+ NOEXIT
+ NOEXPORTALL
+ NOFASTSRT
+   FLAG(I,I)
+ NOFLAGSTD
+   HGPR(PRESERVE)
+ NOINITCHECK
+ NOINITIAL
+   INLINE
+   INTDATE(ANSI)
+ NOJTC
+   LANGUAGE(EN)
+   LINECOUNT(60)
+ NOLIST
+   LP(32)
+ NOMAP
+   MAXPCF(100000)
+ NOMDECK
+ NONAME
+   NSYMBOL(NATIONAL)
+ NONUMBER
+ NONUMCHECK
+   NUMPROC(NOPFD)
+   OBJECT
+ NOOFFSET
+   OPTIMIZE(0)
+   OUTDD(SYSOUT)
+ NOPARMCHECK
+   PGMNAME(COMPAT)
+   QUALIFY(COMPAT)
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115                 Date 06/07/2023  Time 19:53:44   Page     2
+   RENT
+   RMODE(AUTO)
+ NORULES
+ NOSERVICE
+   SEQUENCE
+   SOURCE
+   SPACE(1)
+ NOSQL
+   SQLCCSID
+ NOSQLIMS
+ NOSSRANGE
+ NOSTGOPT
+   SUPPRESS
+ NOTERM
+   TEST(NOEJPD,DWARF,SOURCE,NOSEPARATE)
+ NOTHREAD
+   TRUNC(STD)
+ NOVBREF
+   VLR(STANDARD)
+   VSAMOPENFS(COMPAT)
+ NOWORD
+   XMLPARSE(XMLSS)
+   XREF(FULL)
+   ZONEDATA(PFD)
+   ZWB
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page     3
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+/* LAB5
+  000001               ******************************************************************
+  000002               *                 R3GENERATion NATion SOLUTIONS                  *
+  000003               *                                                                *
+  000004               *                 COBOL Z/OS PROGRAM DESCRIPTION                 *
+  000005               ******************************************************************
+  000006               * PROGRAM DESCRIPTION: INPUTS SALES DATA AND DISPLAYS GROSS, NET,*
+  000007               * COMMISSION DOLLERS EARNED AND SUPPLIES EACH SALES PERSON A STAR*
+  000008               * RATING.                                                        *
+  000009               * -------------------------------------------------------------- *
+  000010               * INPUT DD NAME         FILE IDENTIFIER        FILE DESCRIPTION  *
+  000011               * ----------------      ---------------       ------------------ *
+  000012               * KC03CB3.SLSPMAST        INPUT-FILE          SALESPERSON MASTER *
+  000013               *                                                                *
+  000014               * OUTPUT DD NAME        FILE IDENTIFIER         FILE DESCRIPTION *
+  000015               * ----------------      ---------------         ---------------- *
+  000016               * DEFAULT*                PRNT-FILE       DEFAULT PROGRAM OUTPUT *
+  000017               *                                                                *
+  000018               * COPYBOOKS DESCRIPTION                                          *
+  000019               * --------- ---------------------------------------------------- *
+  000020               *  CCS1SLP  SALESPERSON MASTER INPUT STRUCTURE (WORKING STORAGE) *
+  000021               ******************************************************************
+  000022               *                       C H A N G E L O G                        *
+  000023               ******************************************************************
+  000024               *                                                                *
+  000025               * VER. WRITTEN/CHANGED BY IMPLEMENTATION                         *
+  000026               * NO.         (FULL 1ST AND LAST NAME)        DATE  (MM/DD/YYYY) *
+  000027               * ----        ------------------------        ------------------ *
+  000028               * 0001        GAVIN GUERETTE                      05/18/2023     *
+  000029               * DESCRIPTION OF CHANGE: ADDED PROGRAM DESCRIPTION               *
+  000030               * 0002        GAVIN GUERETTE                      06/07/2023
+  000031               * -------------------------------------------------------------- *
+  000032               *                                                                *
+  000033               ******************************************************************
+  000034                IDENTIFICATION DIVISION.
+  000035                PROGRAM-ID.  LAB5.
+  000036                AUTHOR. GAVIN GUERETTE.
+  000037                ENVIRONMENT DIVISION.
+  000038                CONFIGURATION SECTION.
+  000039                INPUT-OUTPUT SECTION.
+  000040                FILE-CONTROL.
+  000041                    SELECT SALESMAST     ASSIGN SLSPKS                                    52
+  000042                         ORGANIZATION IS INDEXED
+  000043                         ACCESS IS SEQUENTIAL
+  000044                         RECORD KEY IS SALESPERSON-NO                                     57
+ 
+==000044==> IGYGR1130-I "RECORD KEY" or "ALTERNATE KEY" "SALESPERSON-NO" was not defined as an
+                        alphanumeric item.  The key was treated as an alphanumeric item in input
+                        and output statements for this file.
+ 
+  000045                         ALTERNATE KEY IS SALESPERSON-BRANCH-NO WITH DUPLICATES           62
+  000046                         FILE STATUS IS IN-STATUS.                                        234
+  000047                    SELECT PRNT-FILE     ASSIGN TO UR-S-PRNT.                             66
+  000048
+  000049                DATA DIVISION.
+  000050
+  000051                FILE SECTION.
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page     4
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000052                FD SALESMAST.
+  000053               *****************************************************************
+  000054               *         TO BE USED AS A COPYBOOK FOR THE INPUT DATA           *
+  000055               *****************************************************************
+  000056                01 SALESPERSON-MASTER.
+  000057                    05 SALESPERSON-NO            PIC 9(5).
+  000058                    05 SALESPERSON-LAST-NAME     PIC X(15).
+  000059                    05 SALESPERSON-FIRST-NAME    PIC X(10).
+  000060                    05 SALESPERSON-GROSS-SALES   PIC 9(5)V99.
+  000061                    05 SALESPERSON-RETURN-SALES  PIC 9(4)V99.
+  000062                    05 SALESPERSON-BRANCH-NO     PIC X(5).
+  000063                    05 SALESPERSON-COMM-RATE     PIC V9999.
+  000064               * COPY CCS2SLSP.
+  000065
+  000066                FD  PRNT-FILE.
+ 
+==000066==> IGYGR1216-I A "RECORDING MODE" of "F" was assumed for file "PRNT-FILE".
+ 
+  000067                01  PRNT-REC                   PIC X(125).
+  000068
+  000069                WORKING-STORAGE SECTION.
+  000070                01 WS-BRANCH-KEY.
+  000071                    10 WS-BRANCH-NO              PIC 9(3).
+  000072                    10 WS-DEPT-NO                PIC 99.
+  000073               ******************************************************************
+  000074               *                         HEADING LAYOUT                         *
+  000075               ******************************************************************
+  000076                01 WS-HEADING-LINE-1.
+  000077                    03 FILLER            PIC X(5)        VALUE SPACES.                    IMP
+  000078                    03 FILLER            PIC X(6)        VALUE "PAGE  ".
+  000079                    03 WS-HL1-PAGENO     PIC Z9.
+  000080                    03 FILLER            PIC X(40)       VALUE SPACES.                    IMP
+  000081                    03 FILLER            PIC X(15)       VALUE "ABC CORPORATION".
+  000082                    03 FILLER            PIC X(40)       VALUE SPACES.                    IMP
+  000083                    03 WS-HL1-MONTH      PIC 9(2).
+  000084                    03 FILLER            PIC X           VALUE "/".
+  000085                    03 WS-HL1-DAY        PIC Z9.
+  000086                    03 FILLER            PIC X           VALUE "/".
+  000087                    03 WS-HL1-YEAR       PIC 9(4).
+  000088                01 WS-HEADING-LINE-2.
+  000089                    03 FILLER            PIC X(50)       VALUE SPACES.                    IMP
+  000090                    03 FILLER            PIC X(12)       VALUE "SALESPERSON ".
+  000091                    03 FILLER            PIC X(9)        VALUE "BY BRANCH".
+  000092                01 WS-HEADING-LINE-3.
+  000093                    03 FILLER            PIC X(3)        VALUE SPACES.                    IMP
+  000094                    03 FILLER            PIC X(8)        VALUE "BRANCH: ".
+  000095                    03 WS-BRANCH-NUMBER  PIC ZZ9         VALUE ZERO.                      IMP
+  000096                01 WS-HEADING-LINE-4.
+  000097                    03 FILLER            PIC X(3)        VALUE SPACES.                    IMP
+  000098                    03 FILLER            PIC X(10)       VALUE "DEPARTMENT".
+  000099                    03 FILLER            PIC X(4)        VALUE SPACES.                    IMP
+  000100                    03 FILLER            PIC X(10)       VALUE "LAST NAME".
+  000101                    03 FILLER            PIC X(8)        VALUE SPACES.                    IMP
+  000102                    03 FILLER            PIC X(10)       VALUE "FIRST NAME".
+  000103                    03 FILLER            PIC X(6)        VALUE SPACES.                    IMP
+  000104                    03 FILLER            PIC X(11)       VALUE "GROSS SALES".
+  000105                    03 FILLER            PIC X(8)        VALUE SPACES.                    IMP
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page     5
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000106                    03 FILLER            PIC X(7)        VALUE "RETURNS".
+  000107                    03 FILLER            PIC X(7)        VALUE SPACES.                    IMP
+  000108                    03 FILLER            PIC X(9)        VALUE "NET SALES".
+  000109                    03 FILLER            PIC X(6)        VALUE SPACES.                    IMP
+  000110                    03 FILLER            PIC X(10)       VALUE "COMMISSION".
+  000111                    03 FILLER            PIC X(3)        VALUE SPACES.                    IMP
+  000112                    03 FILLER            PIC X(6)        VALUE "RATING".
+  000113               ******************************************************************
+  000114               *                    CALCULATE BRANCH TOTALS                     *
+  000115               ******************************************************************
+  000116                01 SALES-CALC-FIELDS.
+  000117                    05 CAL-COMMISSION-EARNED     PIC S9(7)V99    COMP VALUE ZERO.         IMP
+  000118                    05 CAL-SALESPERSON-NET       PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000119                    05 CAL-DEPT-TOTAL-GROSS      PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000120                    05 CAL-DEPT-TOTAL-NET        PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000121                    05 CAL-DEPT-TOTAL-COMM       PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000122                    05 CAL-DEPT-TOTAL-RETURN     PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000123                    05 CAL-BRANCH-TOTAL-GROSS    PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000124                    05 CAL-BRANCH-TOTAL-NET      PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000125                    05 CAL-BRANCH-TOTAL-COMM     PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000126                    05 CAL-BRANCH-TOTAL-RETURN   PIC S9(7)V99  COMP VALUE ZERO.           IMP
+  000127                    05 CAL-GRAND-TOTAL-GROSS     PIC S9(8)V99  COMP VALUE ZERO.           IMP
+  000128                    05 CAL-GRAND-TOTAL-NET       PIC S9(8)V99  COMP VALUE ZERO.           IMP
+  000129                    05 CAL-GRAND-TOTAL-COMM      PIC S9(8)V99  COMP VALUE ZERO.           IMP
+  000130                    05 CAL-GRAND-TOTAL-RETURN    PIC S9(8)V99  COMP VALUE ZERO.           IMP
+  000131                    05 CAL-PG-NUM                PIC 99        COMP VALUE ZERO.           IMP
+  000132                    05 CAL-FOUR-STAR-SLSP        PIC 999       COMP VALUE ZERO.           IMP
+  000133               ******************************************************************
+  000134               *                    TOTALS OUTPUT STRUCTURE                     *
+  000135               ******************************************************************
+  000136                01 WS-TOTALS.
+  000137                    03 FILLER            PIC X(3)            VALUE SPACES.                IMP
+  000138                    03 WS-TOTAL-ID       PIC X(19).
+  000139                    03 FILLER            PIC X(26)           VALUE SPACES.                IMP
+  000140                    03 WS-TOTAL-GROSS    PIC $$$,$$$,$$$.$$.
+  000141                    03 FILLER            PIC X               VALUE SPACES.                IMP
+  000142                    03 WS-TOTAL-RETURN   PIC $$$,$$$,$$$.$$.
+  000143                    03 FILLER            PIC X(2)            VALUE SPACES.                IMP
+  000144                    03 WS-TOTAL-NET      PIC $$$,$$$,$$$.$$.
+  000145                    03 FILLER            PIC X(2)            VALUE SPACES.                IMP
+  000146                    03 WS-TOTAL-COMM     PIC $$$,$$$,$$$.$$.
+  000147                01 WS-BRANCH-TOTALS.
+  000148                    03 FILLER            PIC X(5)            VALUE "TOTAL".
+  000149                    03 FILLER            PIC X(8)            VALUE " BRANCH ".
+  000150                    03 WS-BRANCH-TOT-ID  PIC X(3).
+  000151                01 WS-DEPT-TOTALS.
+  000152                    03 FILLER            PIC X(6)            VALUE "TOTAL ".
+  000153                    03 FILLER            PIC X(11)           VALUE "DEPARTMENT ".
+  000154                    03 WS-DEPT-TOT-ID    PIC XX.
+  000155               ******************************************************************
+  000156               *                      UNDERLINE STRUCTURES                      *
+  000157               ******************************************************************
+  000158                01 WS-TOTALS-UL.
+  000159                    03 FILLER                PIC X(49)   VALUE SPACES.                    IMP
+  000160                    03 FILLER                PIC X(13)   VALUE '-------------'.
+  000161                    03 FILLER                PIC X(5)    VALUE SPACES.                    IMP
+  000162                    03 FILLER                PIC X(10)   VALUE '----------'.
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page     6
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000163                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000164                    03 FILLER                PIC X(13)   VALUE '-------------'.
+  000165                    03 FILLER                PIC X(4)    VALUE SPACES.                    IMP
+  000166                    03 FILLER                PIC X(12)   VALUE '------------'.
+  000167                01 WS-DBL-TOTALS-UL.
+  000168                    03 FILLER                PIC X(49)   VALUE SPACES.                    IMP
+  000169                    03 FILLER                PIC X(13)   VALUE '============='.
+  000170                    03 FILLER                PIC X(5)    VALUE SPACES.                    IMP
+  000171                    03 FILLER                PIC X(10)   VALUE '=========='.
+  000172                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000173                    03 FILLER                PIC X(13)   VALUE '============='.
+  000174                    03 FILLER                PIC X(4)    VALUE SPACES.                    IMP
+  000175                    03 FILLER                PIC X(12)   VALUE '============'.
+  000176               ******************************************************************
+  000177               *                   OUTPUT SALESPERSON DETAIL                    *
+  000178               ******************************************************************
+  000179                01 WS-EMPLOYEE-DATA.
+  000180                    03 FILLER                PIC X(6)    VALUE SPACES.                    IMP
+  000181                    03 WS-EMPLOYEE-DEPT      PIC XX.
+  000182                    03 FILLER                PIC X(9)    VALUE SPACES.                    IMP
+  000183                    03 WS-EMPLOYEE-LASTNAME  PIC X(15).
+  000184                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000185                    03 WS-EMPLOYEE-FIRSTNAME PIC X(10).
+  000186                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000187                    03 WS-EMPLOYEE-GROSS     PIC $$,$$$,$$$.$$.
+  000188                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000189                    03 WS-EMPLOYEE-RETURNS   PIC $$,$$$,$$$.$$.
+  000190                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000191                    03 WS-EMPLOYEE-NET       PIC $$,$$$,$$$.$$.
+  000192                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000193                    03 WS-EMPLOYEE-COMM      PIC $$,$$$,$$$.$$.
+  000194                    03 FILLER                PIC X(4)    VALUE SPACES.                    IMP
+  000195                    03 WS-SLSP-RATING        PIC X(5).
+  000196               ******************************************************************
+  000197               *                    BEST SALESPERSON OUTPUT                     *
+  000198               ******************************************************************
+  000199                01 WS-FINAL-DATE.
+  000200                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000201                    03 FILLER                PIC X(14)   VALUE 'AS OF CURRENT '.
+  000202                    03 FILLER                PIC X(9)    VALUE 'DATE OF: '.
+  000203                    03 WS-FINAL-MONTH        PIC Z9.
+  000204                    03 FILLER                PIC X       VALUE '/'.
+  000205                    03 WS-FINAL-DAY          PIC Z9.
+  000206                    03 FILLER                PIC X       VALUE '/'.
+  000207                    03 WS-FINAL-YEAR         PIC 9(4).
+  000208                01 WS-HIGHEST-NET-SLSP.
+  000209                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000210                    03 FILLER                PIC X(15)   VALUE 'THE SALESPERSON'.
+  000211                    03 FILLER                PIC X(15)   VALUE ' WITH THE HIGHE'.
+  000212                    03 FILLER                PIC X(15)   VALUE 'ST NET SALES is'.
+  000213                    03 FILLER                PIC X       VALUE SPACE.                     IMP
+  000214                    03 WS-HIGHEST-NET-LAST   PIC X(15).
+  000215                    03 FILLER                PIC X       VALUE ','.
+  000216                    03 WS-HIGHEST-NET-FIRST  PIC X(10).
+  000217                01 WS-HIGHEST-NET-VALUE.
+  000218                    03 FILLER                PIC X(4)    VALUE SPACES.                    IMP
+  000219                    03 FILLER                PIC X(7)    VALUE 'WITH A '.
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page     7
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000220                    03 FILLER                PIC X(10)   VALUE 'VALUE OF: '.
+  000221                    03 WS-HIGHEST-NET-SALES  PIC $$,$$$,$$$.$$.
+  000222                01 WS-SLSP-FOUR-ST-RATING.
+  000223                    03 FILLER                PIC X(3)    VALUE SPACES.                    IMP
+  000224                    03 FILLER                PIC X(15)   VALUE 'THERE ARE A TOT'.
+  000225                    03 FILLER                PIC X(6)    VALUE 'AL OF '.
+  000226                    03 WS-FOUR-STAR-CT       PIC ZZ9.
+  000227                    03 FILLER                PIC X(14)   VALUE ' SALESPERSONS '.
+  000228                    03 FILLER                PIC X(15)   VALUE 'WITH A 4 STAR R'.
+  000229                    03 FILLER                PIC X(6)    VALUE 'ATING.'.
+  000230                01  MISC.
+  000231               ******************************************************************
+  000232               *                           HELPER FIELDS                        *
+  000233               ******************************************************************
+  000234                    05 IN-STATUS             PIC XX        VALUE SPACES.                  IMP
+  000235                    05 BR-BREAK-FIELD        PIC 9(3).
+  000236                    05 DP-BREAK-FIELD        PIC 99.
+  000237                    05 WS-HIGHEST-NET-BREAK  PIC 9(5)V99   VALUE ZERO.                    IMP
+  000238               ******************************************************************
+  000239               *                   CURRENT SYSTEM DATE/TIME                     *
+  000240               ******************************************************************
+  000241                01 WS-CURRENT-DATE.
+  000242                    05 WS-CD-YEAR              PIC X(4).
+  000243                    05 WS-CD-MONTH             PIC XX.
+  000244                    05 WS-CD-DAY               PIC XX.
+  000245               ******************************************************************
+  000246               *                         RATING SYSTEMS                         *
+  000247               ******************************************************************
+  000248                01 WS-RATING-VALUES.
+  000249                    05 FILLER        PIC X(4)                VALUE X"0000000C".
+  000250                    05 FILLER        PIC X(4)                VALUE X"1999999C".
+  000251                    05 FILLER        PIC X(5)                VALUE "    *".
+  000252                    05 FILLER        PIC X(4)                VALUE X"2000000C".
+  000253                    05 FILLER        PIC X(4)                VALUE X"3999999C".
+  000254                    05 FILLER        PIC X(5)                VALUE "   **".
+  000255                    05 FILLER        PIC X(4)                VALUE X"4000000C".
+  000256                    05 FILLER        PIC X(4)                VALUE X"5999999C".
+  000257                    05 FILLER        PIC X(5)                VALUE "  ***".
+  000258                    05 FILLER        PIC X(4)                VALUE X"6000000C".
+  000259                    05 FILLER        PIC X(4)                VALUE X"7999999C".
+  000260                    05 FILLER        PIC X(5)                VALUE " ****".
+  000261                    05 FILLER        PIC X(4)                VALUE X"8000000C".
+  000262                    05 FILLER        PIC X(4)                VALUE X"9999999C".
+  000263                    05 FILLER        PIC X(5)                VALUE "*****".
+  000264                01 WS-RATING-TABLE REDEFINES WS-RATING-VALUES.                            248
+  000265                    05 WS-RATING-GROUP OCCURS 5 TIMES.
+  000266                         10 WS-SALES-RANGE-MIN-VALUE     PIC 9(5)V99 COMP-3.
+  000267                         10 WS-SALES-RANGE-MAX-VALUE     PIC 9(5)V99 COMP-3.
+  000268                         10 WS-STAR-RATING               PIC X(5).
+  000269                01 SUBSCRIPT-FIELD.
+  000270                    05 WS-RATING-SUB                             PIC 9(2) COMP.
+  000271               ******************************************************************
+  000272               *                    SALESMAST FILE SWITCHES                     *
+  000273               ******************************************************************
+  000274                01 WS-SWITCHES.
+  000275                    05 WS-SALESMAST-EOF-SWITCH       PIC X       VALUE "N".
+  000276                         88 WS-SALESMAST-EOF                     VALUE "Y".
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page     8
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000277                         88 WS-SALESMAST-NOT-EOF                 VALUE "N".
+  000278                    05 FIRST-RECORD-SWITCH           PIC X       VALUE "Y".
+  000279                         88 FIRST-RECORD                         VALUE "Y".
+  000280                         88 NOT-FIRST-RECORD                     VALUE "N".
+  000281               ******************************************************************
+  000282               *                 START OF PROCEDURE DIVISION                    *
+  000283               ******************************************************************
+  000284                PROCEDURE DIVISION.
+  000285                000-MAINLINE.
+  000286                    OPEN INPUT SALESMAST                                                  52
+  000287                         OUTPUT PRNT-FILE.                                                66
+  000288                    PERFORM B000-START-AIX.                                               527
+  000289
+  000290                    IF IN-STATUS NOT EQUAL "00"                                           234
+  000291      1                  THEN DISPLAY "OPEN INPUT FILE ERROR, IN-STATUS = ",
+  000292      1                  IN-STATUS                                                        234
+  000293      1                      DISPLAY "CHECK THAT YOUR JCL AND COBOL FILE"
+  000294      1                      " DEFINITIONS MATCH"
+  000295                    ELSE
+  000296      1                  PERFORM U100-FORMAT-DATE                                         308
+  000297      1                  PERFORM 1100-PRNT-TABLE UNTIL WS-SALESMAST-EOF                   319 276
+  000298      1                  CLOSE PRNT-FILE.                                                 66
+  000299                    STOP RUN.
+  000300               *****************************************************************
+  000301               *                     PRINT HEADING LAYOUT                      *
+  000302               *****************************************************************
+  000303                1000-PRNT-HEADING.
+  000304                    WRITE PRNT-REC FROM WS-HEADING-LINE-1 AFTER ADVANCING PAGE.           67 76
+  000305                    WRITE PRNT-REC FROM WS-HEADING-LINE-2 AFTER ADVANCING 1 LINE.         67 88
+  000306                    WRITE PRNT-REC FROM WS-HEADING-LINE-3 AFTER ADVANCING 1 LINE.         67 92
+  000307                    WRITE PRNT-REC FROM WS-HEADING-LINE-4 AFTER ADVANCING 1 LINE.         67 96
+  000308                U100-FORMAT-DATE.
+  000309                    ACCEPT WS-CURRENT-DATE FROM DATE YYYYMMDD.                            241 241
+  000310                    MOVE WS-CD-MONTH             TO WS-HL1-MONTH.                         243 83
+  000311                    MOVE WS-CD-MONTH             TO WS-FINAL-MONTH.                       243 203
+  000312                    MOVE WS-CD-DAY               TO WS-HL1-DAY.                           244 85
+  000313                    MOVE WS-CD-DAY               TO WS-FINAL-DAY.                         244 205
+  000314                    MOVE WS-CD-YEAR              TO WS-HL1-YEAR.                          242 87
+  000315                    MOVE WS-CD-YEAR              TO WS-FINAL-YEAR.                        242 207
+  000316               *****************************************************************
+  000317               *                       PRINT TABLE INFO                        *
+  000318               *****************************************************************
+  000319                1100-PRNT-TABLE.
+  000320                    PERFORM 2500-READ-INPUT                                               524
+  000321                    EVALUATE TRUE
+  000322                         WHEN WS-SALESMAST-EOF                                            276
+  000323      1                      PERFORM 1200-PRNT-BRANCH-TOTALS                              350
+  000324      1                      PERFORM 1400-PRNT-GRAND-TOTALS                               398
+  000325      1                      PERFORM 1800-BEST-SALES-OUTPUT                               502
+  000326                         WHEN FIRST-RECORD                                                279
+  000327      1                      PERFORM 1700-INCREMENT-PG-NUMBER                             496
+  000328      1                      PERFORM 1600-UPDATE-BRANCH-BREAK                             484
+  000329      1                      PERFORM 1650-UPDATE-DEPT-BREAK                               491
+  000330      1                      PERFORM 1000-PRNT-HEADING                                    303
+  000331      1                      PERFORM 1300-PRNT-SALESPERSON-INFO                           381
+  000332      1                      MOVE 'N' TO FIRST-RECORD-SWITCH                              278
+  000333                         WHEN WS-BRANCH-NO NOT EQUAL BR-BREAK-FIELD                       71 235
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page     9
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000334      1                      PERFORM 1200-PRNT-BRANCH-TOTALS                              350
+  000335      1                      PERFORM 1700-INCREMENT-PG-NUMBER                             496
+  000336      1                      PERFORM 1600-UPDATE-BRANCH-BREAK                             484
+  000337      1                      PERFORM 1650-UPDATE-DEPT-BREAK                               491
+  000338      1                      PERFORM 1000-PRNT-HEADING                                    303
+  000339      1                      PERFORM 1300-PRNT-SALESPERSON-INFO                           381
+  000340                         WHEN WS-DEPT-NO NOT EQUAL DP-BREAK-FIELD                         72 236
+  000341      1                      PERFORM 1250-PRNT-DEPT-TOTALS                                367
+  000342      1                      PERFORM 1650-UPDATE-DEPT-BREAK                               491
+  000343      1                      PERFORM 1300-PRNT-SALESPERSON-INFO                           381
+  000344                         WHEN OTHER
+  000345      1                      PERFORM 1300-PRNT-SALESPERSON-INFO                           381
+  000346                    END-EVALUATE.
+  000347               *****************************************************************
+  000348               *                   PRINT BRANCH TOTALS INFO                    *
+  000349               *****************************************************************
+  000350                1200-PRNT-BRANCH-TOTALS.
+  000351                    PERFORM 1250-PRNT-DEPT-TOTALS                                         367
+  000352                    MOVE CAL-BRANCH-TOTAL-GROSS  TO WS-TOTAL-GROSS                        123 140
+  000353                    MOVE CAL-BRANCH-TOTAL-RETURN TO WS-TOTAL-RETURN                       126 142
+  000354                    MOVE CAL-BRANCH-TOTAL-NET    TO WS-TOTAL-NET                          124 144
+  000355                    MOVE CAL-BRANCH-TOTAL-COMM   TO WS-TOTAL-COMM                         125 146
+  000356                    MOVE BR-BREAK-FIELD          TO WS-BRANCH-TOT-ID                      235 150
+  000357                    MOVE WS-BRANCH-TOTALS        TO WS-TOTAL-ID                           147 138
+  000358                    WRITE PRNT-REC FROM WS-TOTALS-UL AFTER ADVANCING 1 LINE.              67 158
+  000359                    WRITE PRNT-REC FROM WS-TOTALS AFTER ADVANCING 1 LINE.                 67 136
+  000360                    WRITE PRNT-REC FROM WS-TOTALS-UL AFTER ADVANCING 1 LINE.              67 158
+  000361                    MOVE SPACES TO PRNT-REC                                               IMP 67
+  000362                         WRITE PRNT-REC AFTER ADVANCING 1 LINE.                           67
+  000363                    PERFORM 1550-ZERO-BRANCH-TOTALS.                                      463
+  000364               ******************************************************************
+  000365               *                    PRINT DEPT TOTALS INFO                      *
+  000366               ******************************************************************
+  000367                1250-PRNT-DEPT-TOTALS.
+  000368                    MOVE CAL-DEPT-TOTAL-GROSS    TO WS-TOTAL-GROSS                        119 140
+  000369                    MOVE CAL-DEPT-TOTAL-RETURN   TO WS-TOTAL-RETURN                       122 142
+  000370                    MOVE CAL-DEPT-TOTAL-NET      TO WS-TOTAL-NET                          120 144
+  000371                    MOVE CAL-DEPT-TOTAL-COMM     TO WS-TOTAL-COMM.                        121 146
+  000372                    MOVE DP-BREAK-FIELD          TO WS-DEPT-TOT-ID                        236 154
+  000373                    MOVE WS-DEPT-TOTALS          TO WS-TOTAL-ID                           151 138
+  000374                    MOVE SPACE TO PRNT-REC WRITE PRNT-REC AFTER ADVANCING 1 LINE.         IMP 67 67
+  000375                    WRITE PRNT-REC FROM WS-TOTALS AFTER ADVANCING 1 LINE.                 67 136
+  000376                    MOVE SPACE TO PRNT-REC WRITE PRNT-REC AFTER ADVANCING 1 LINE          IMP 67 67
+  000377                    PERFORM 1560-ZERO-DEPT-TOTALS.                                        472
+  000378               *****************************************************************
+  000379               *                    PRINT SALESPERSON INFO                     *
+  000380               *****************************************************************
+  000381                1300-PRNT-SALESPERSON-INFO.
+  000382                    PERFORM 1500-SALESPERSON-CALCULATIONS.                                408
+  000383                    MOVE DP-BREAK-FIELD TO WS-EMPLOYEE-DEPT                               236 181
+  000384                    PERFORM WITH TEST AFTER
+  000385                     VARYING WS-RATING-SUB FROM 1 BY 1 UNTIL                              270
+  000386                      CAL-SALESPERSON-NET >= WS-SALES-RANGE-MIN-VALUE                     118 266
+  000387                      (WS-RATING-SUB) AND                                                 270
+  000388                      CAL-SALESPERSON-NET < WS-SALES-RANGE-MAX-VALUE                      118 267
+  000389                      (WS-RATING-SUB)                                                     270
+  000390      1               MOVE WS-STAR-RATING (WS-RATING-SUB) TO WS-SLSP-RATING               268 270 195
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    10
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000391                    END-PERFORM.
+  000392                    IF WS-SLSP-RATING IS EQUAL ' ****'                                    195
+  000393      1                  COMPUTE CAL-FOUR-STAR-SLSP = CAL-FOUR-STAR-SLSP + 1.             132 132
+  000394                    WRITE PRNT-REC FROM WS-EMPLOYEE-DATA AFTER ADVANCING 1 LINE.          67 179
+  000395               *****************************************************************
+  000396               *                   PRINT GRAND TOTALS INFO                     *
+  000397               *****************************************************************
+  000398                1400-PRNT-GRAND-TOTALS.
+  000399                    MOVE CAL-GRAND-TOTAL-GROSS   TO WS-TOTAL-GROSS.                       127 140
+  000400                    MOVE CAL-GRAND-TOTAL-RETURN  TO WS-TOTAL-RETURN.                      130 142
+  000401                    MOVE CAL-GRAND-TOTAL-NET     TO WS-TOTAL-NET.                         128 144
+  000402                    MOVE CAL-GRAND-TOTAL-COMM    TO WS-TOTAL-COMM.                        129 146
+  000403                    WRITE PRNT-REC FROM WS-TOTALS AFTER ADVANCING 1 LINE.                 67 136
+  000404                    WRITE PRNT-REC FROM WS-DBL-TOTALS-UL AFTER ADVANCING 1 LINE.          67 167
+  000405               *****************************************************************
+  000406               *                   SALESPERSON CALCULATIONS                    *
+  000407               *****************************************************************
+  000408                1500-SALESPERSON-CALCULATIONS.
+  000409                    COMPUTE
+  000410                         CAL-COMMISSION-EARNED ROUNDED = (SALESPERSON-GROSS-SALES         117 60
+  000411                         - SALESPERSON-RETURN-SALES) * SALESPERSON-COMM-RATE.             61 63
+  000412                    COMPUTE
+  000413                         CAL-SALESPERSON-NET = SALESPERSON-GROSS-SALES -                  118 60
+  000414                         SALESPERSON-RETURN-SALES.                                        61
+  000415                    COMPUTE
+  000416                         CAL-DEPT-TOTAL-GROSS = CAL-DEPT-TOTAL-GROSS +                    119 119
+  000417                         SALESPERSON-GROSS-SALES.                                         60
+  000418                    COMPUTE
+  000419                         CAL-DEPT-TOTAL-NET = CAL-DEPT-TOTAL-NET +                        120 120
+  000420                         CAL-SALESPERSON-NET.                                             118
+  000421                    COMPUTE
+  000422                         CAL-DEPT-TOTAL-RETURN = CAL-DEPT-TOTAL-RETURN +                  122 122
+  000423                         SALESPERSON-RETURN-SALES.                                        61
+  000424                    COMPUTE
+  000425                         CAL-DEPT-TOTAL-COMM = CAL-DEPT-TOTAL-COMM +                      121 121
+  000426                         CAL-COMMISSION-EARNED.                                           117
+  000427                    COMPUTE
+  000428                         CAL-BRANCH-TOTAL-GROSS = CAL-BRANCH-TOTAL-GROSS +                123 123
+  000429                         SALESPERSON-GROSS-SALES.                                         60
+  000430                    COMPUTE
+  000431                         CAL-BRANCH-TOTAL-NET = CAL-BRANCH-TOTAL-NET +                    124 124
+  000432                         CAL-SALESPERSON-NET.                                             118
+  000433                    COMPUTE
+  000434                         CAL-BRANCH-TOTAL-RETURN = CAL-BRANCH-TOTAL-RETURN +              126 126
+  000435                         SALESPERSON-RETURN-SALES.                                        61
+  000436                    COMPUTE
+  000437                         CAL-BRANCH-TOTAL-COMM = CAL-BRANCH-TOTAL-COMM +                  125 125
+  000438                         CAL-COMMISSION-EARNED.                                           117
+  000439                    COMPUTE
+  000440                         CAL-GRAND-TOTAL-GROSS = CAL-GRAND-TOTAL-GROSS +                  127 127
+  000441                         SALESPERSON-GROSS-SALES.                                         60
+  000442                    COMPUTE
+  000443                         CAL-GRAND-TOTAL-NET = CAL-GRAND-TOTAL-NET                        128 128
+  000444                         + CAL-SALESPERSON-NET.                                           118
+  000445                    COMPUTE
+  000446                         CAL-GRAND-TOTAL-RETURN = CAL-GRAND-TOTAL-RETURN +                130 130
+  000447                         SALESPERSON-RETURN-SALES.                                        61
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    11
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000448                    COMPUTE
+  000449                         CAL-GRAND-TOTAL-COMM = CAL-GRAND-TOTAL-COMM +                    129 129
+  000450                         CAL-COMMISSION-EARNED.                                           117
+  000451                    MOVE SALESPERSON-LAST-NAME TO WS-EMPLOYEE-LASTNAME.                   58 183
+  000452                    MOVE SALESPERSON-FIRST-NAME TO WS-EMPLOYEE-FIRSTNAME.                 59 185
+  000453                    MOVE SALESPERSON-GROSS-SALES TO WS-EMPLOYEE-GROSS.                    60 187
+  000454                    MOVE SALESPERSON-RETURN-SALES TO WS-EMPLOYEE-RETURNS.                 61 189
+  000455                    MOVE CAL-COMMISSION-EARNED TO WS-EMPLOYEE-COMM.                       117 193
+  000456                    MOVE CAL-SALESPERSON-NET TO WS-EMPLOYEE-NET.                          118 191
+  000457                    IF WS-HIGHEST-NET-BREAK < CAL-SALESPERSON-NET                         237 118
+  000458      1                  MOVE CAL-SALESPERSON-NET    TO WS-HIGHEST-NET-SALES              118 221
+  000459      1                  MOVE CAL-SALESPERSON-NET    TO WS-HIGHEST-NET-BREAK              118 237
+  000460      1                  MOVE SALESPERSON-LAST-NAME  TO WS-HIGHEST-NET-LAST               58 214
+  000461      1                  MOVE SALESPERSON-FIRST-NAME TO WS-HIGHEST-NET-FIRST.             59 216
+  000462               *    ZERO OUT BRANCH FIELDS
+  000463                1550-ZERO-BRANCH-TOTALS.
+  000464                    COMPUTE
+  000465                         CAL-BRANCH-TOTAL-GROSS = ZERO.                                   123 IMP
+  000466                    COMPUTE
+  000467                         CAL-BRANCH-TOTAL-NET = ZERO.                                     124 IMP
+  000468                    COMPUTE
+  000469                         CAL-BRANCH-TOTAL-COMM = ZERO.                                    125 IMP
+  000470                    COMPUTE
+  000471                         CAL-BRANCH-TOTAL-RETURN = ZERO.                                  126 IMP
+  000472                1560-ZERO-DEPT-TOTALS.
+  000473                    COMPUTE
+  000474                         CAL-DEPT-TOTAL-GROSS = ZERO.                                     119 IMP
+  000475                    COMPUTE
+  000476                         CAL-DEPT-TOTAL-NET = ZERO.                                       120 IMP
+  000477                    COMPUTE
+  000478                         CAL-DEPT-TOTAL-COMM = ZERO.                                      121 IMP
+  000479                    COMPUTE
+  000480                         CAL-DEPT-TOTAL-RETURN = ZERO.                                    122 IMP
+  000481               ******************************************************************
+  000482               *                     UPDATE BRANCH VALUES                       *
+  000483               ******************************************************************
+  000484                1600-UPDATE-BRANCH-BREAK.
+  000485                     MOVE WS-BRANCH-NO TO BR-BREAK-FIELD                                  71 235
+  000486                     MOVE BR-BREAK-FIELD TO WS-BRANCH-NO                                  235 71
+  000487                     MOVE BR-BREAK-FIELD TO WS-BRANCH-NUMBER.                             235 95
+  000488               ******************************************************************
+  000489               *                      UPDATE DEPT VALUES                        *
+  000490               ******************************************************************
+  000491                1650-UPDATE-DEPT-BREAK.
+  000492                     MOVE WS-DEPT-NO TO DP-BREAK-FIELD.                                   72 236
+  000493               ******************************************************************
+  000494               *                    INCREMENT PAGE NUMBER                       *
+  000495               ******************************************************************
+  000496                1700-INCREMENT-PG-NUMBER.
+  000497                    COMPUTE CAL-PG-NUM = CAL-PG-NUM + 1.                                  131 131
+  000498                    MOVE CAL-PG-NUM TO WS-HL1-PAGENO.                                     131 79
+  000499               ******************************************************************
+  000500               *                          FINAL OUTPUT                          *
+  000501               ******************************************************************
+  000502                1800-BEST-SALES-OUTPUT.
+  000503                    MOVE CAL-FOUR-STAR-SLSP TO WS-FOUR-STAR-CT.                           132 226
+  000504                    MOVE SPACES TO PRNT-REC                                               IMP 67
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    12
+  LineID  PL SL  ----+-*A-1-B--+----2----+----3----+----4----+----5----+----6----+----7-|--+----8 Map and Cross Reference
+  000505                         WRITE PRNT-REC AFTER ADVANCING 1 LINE.                           67
+  000506                    MOVE SPACES TO PRNT-REC                                               IMP 67
+  000507                         WRITE PRNT-REC AFTER ADVANCING 1 LINE.                           67
+  000508                    WRITE PRNT-REC FROM WS-FINAL-DATE AFTER ADVANCING 1 LINE.             67 199
+  000509                    MOVE SPACES TO PRNT-REC                                               IMP 67
+  000510                         WRITE PRNT-REC AFTER ADVANCING 1 LINE.                           67
+  000511                    WRITE PRNT-REC FROM WS-HIGHEST-NET-SLSP                               67 208
+  000512                         AFTER ADVANCING 1 LINE.
+  000513                    MOVE SPACES TO PRNT-REC                                               IMP 67
+  000514                         WRITE PRNT-REC AFTER ADVANCING 1 LINE.                           67
+  000515                    WRITE PRNT-REC FROM WS-HIGHEST-NET-VALUE                              67 217
+  000516                         AFTER ADVANCING 1 LINE.
+  000517                    MOVE SPACES TO PRNT-REC                                               IMP 67
+  000518                         WRITE PRNT-REC AFTER ADVANCING 1 LINE.                           67
+  000519                    WRITE PRNT-REC FROM WS-SLSP-FOUR-ST-RATING                            67 222
+  000520                         AFTER ADVANCING 1 LINE.
+  000521               ******************************************************************
+  000522               *                     READS THE INPUT FILE                       *
+  000523               ******************************************************************
+  000524                2500-READ-INPUT.
+  000525                    READ SALESMAST AT END MOVE 'Y' TO WS-SALESMAST-EOF-SWITCH.            52 275
+  000526                    MOVE SALESPERSON-BRANCH-NO TO WS-BRANCH-KEY.                          62 70
+  000527                B000-START-AIX.
+  000528                    MOVE LOW-VALUE TO SALESPERSON-BRANCH-NO                               IMP 62
+  000529                    START SALESMAST KEY IS >= SALESPERSON-BRANCH-NO                       52 62
+  000530      1                  INVALID KEY MOVE 'Y' TO WS-SALESMAST-EOF-SWITCH.                 275
+  000531
+*/ LAB5
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    13
+An "M" preceding a data-name reference indicates that the data-name is modified by this reference.
+ 
+ Defined   Cross-reference of data names   References
+ 
+     235   BR-BREAK-FIELD . . . . . . . .  333 356 M485 486 487
+     125   CAL-BRANCH-TOTAL-COMM. . . . .  355 M437 437 M469
+     123   CAL-BRANCH-TOTAL-GROSS . . . .  352 M428 428 M465
+     124   CAL-BRANCH-TOTAL-NET . . . . .  354 M431 431 M467
+     126   CAL-BRANCH-TOTAL-RETURN. . . .  353 M434 434 M471
+     117   CAL-COMMISSION-EARNED. . . . .  M410 426 438 450 455
+     121   CAL-DEPT-TOTAL-COMM. . . . . .  371 M425 425 M478
+     119   CAL-DEPT-TOTAL-GROSS . . . . .  368 M416 416 M474
+     120   CAL-DEPT-TOTAL-NET . . . . . .  370 M419 419 M476
+     122   CAL-DEPT-TOTAL-RETURN. . . . .  369 M422 422 M480
+     132   CAL-FOUR-STAR-SLSP . . . . . .  M393 393 503
+     129   CAL-GRAND-TOTAL-COMM . . . . .  402 M449 449
+     127   CAL-GRAND-TOTAL-GROSS. . . . .  399 M440 440
+     128   CAL-GRAND-TOTAL-NET. . . . . .  401 M443 443
+     130   CAL-GRAND-TOTAL-RETURN . . . .  400 M446 446
+     131   CAL-PG-NUM . . . . . . . . . .  M497 497 498
+     118   CAL-SALESPERSON-NET. . . . . .  386 388 M413 420 432 444 456 457 458 459
+     236   DP-BREAK-FIELD . . . . . . . .  340 372 383 M492
+     279   FIRST-RECORD . . . . . . . . .  326
+     278   FIRST-RECORD-SWITCH. . . . . .  M332
+     234   IN-STATUS. . . . . . . . . . .  46 290 292
+     230   MISC
+     280   NOT-FIRST-RECORD
+      66   PRNT-FILE. . . . . . . . . . .  47 287 298
+      67   PRNT-REC . . . . . . . . . . .  M304 M305 M306 M307 M358 M359 M360 M361 362 M374 374 M375 M376 376 M394 M403
+                                           M404 M504 505 M506 507 M508 M509 510 M511 M513 514 M515 M517 518 M519
+     116   SALES-CALC-FIELDS
+      52   SALESMAST. . . . . . . . . . .  41 286 525 529
+      62   SALESPERSON-BRANCH-NO. . . . .  45 526 M528 529
+      63   SALESPERSON-COMM-RATE. . . . .  411
+      59   SALESPERSON-FIRST-NAME . . . .  452 461
+      60   SALESPERSON-GROSS-SALES. . . .  410 413 417 429 441 453
+      58   SALESPERSON-LAST-NAME. . . . .  451 460
+      56   SALESPERSON-MASTER
+      57   SALESPERSON-NO . . . . . . . .  44
+      61   SALESPERSON-RETURN-SALES . . .  411 414 423 435 447 454
+     269   SUBSCRIPT-FIELD
+      70   WS-BRANCH-KEY. . . . . . . . .  M526
+      71   WS-BRANCH-NO . . . . . . . . .  333 485 M486
+      95   WS-BRANCH-NUMBER . . . . . . .  M487
+     150   WS-BRANCH-TOT-ID . . . . . . .  M356
+     147   WS-BRANCH-TOTALS . . . . . . .  357
+     244   WS-CD-DAY. . . . . . . . . . .  312 313
+     243   WS-CD-MONTH. . . . . . . . . .  310 311
+     242   WS-CD-YEAR . . . . . . . . . .  314 315
+     241   WS-CURRENT-DATE. . . . . . . .  M309 309
+     167   WS-DBL-TOTALS-UL . . . . . . .  404
+      72   WS-DEPT-NO . . . . . . . . . .  340 492
+     154   WS-DEPT-TOT-ID . . . . . . . .  M372
+     151   WS-DEPT-TOTALS . . . . . . . .  373
+     193   WS-EMPLOYEE-COMM . . . . . . .  M455
+     179   WS-EMPLOYEE-DATA . . . . . . .  394
+     181   WS-EMPLOYEE-DEPT . . . . . . .  M383
+     185   WS-EMPLOYEE-FIRSTNAME. . . . .  M452
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    14
+ Defined   Cross-reference of data names   References
+ 
+     187   WS-EMPLOYEE-GROSS. . . . . . .  M453
+     183   WS-EMPLOYEE-LASTNAME . . . . .  M451
+     191   WS-EMPLOYEE-NET. . . . . . . .  M456
+     189   WS-EMPLOYEE-RETURNS. . . . . .  M454
+     199   WS-FINAL-DATE. . . . . . . . .  508
+     205   WS-FINAL-DAY . . . . . . . . .  M313
+     203   WS-FINAL-MONTH . . . . . . . .  M311
+     207   WS-FINAL-YEAR. . . . . . . . .  M315
+     226   WS-FOUR-STAR-CT. . . . . . . .  M503
+      76   WS-HEADING-LINE-1. . . . . . .  304
+      88   WS-HEADING-LINE-2. . . . . . .  305
+      92   WS-HEADING-LINE-3. . . . . . .  306
+      96   WS-HEADING-LINE-4. . . . . . .  307
+     237   WS-HIGHEST-NET-BREAK . . . . .  457 M459
+     216   WS-HIGHEST-NET-FIRST . . . . .  M461
+     214   WS-HIGHEST-NET-LAST. . . . . .  M460
+     221   WS-HIGHEST-NET-SALES . . . . .  M458
+     208   WS-HIGHEST-NET-SLSP. . . . . .  511
+     217   WS-HIGHEST-NET-VALUE . . . . .  515
+      85   WS-HL1-DAY . . . . . . . . . .  M312
+      83   WS-HL1-MONTH . . . . . . . . .  M310
+      79   WS-HL1-PAGENO. . . . . . . . .  M498
+      87   WS-HL1-YEAR. . . . . . . . . .  M314
+     265   WS-RATING-GROUP
+     270   WS-RATING-SUB. . . . . . . . .  M385 387 389 390
+     264   WS-RATING-TABLE
+     248   WS-RATING-VALUES . . . . . . .  264
+     267   WS-SALES-RANGE-MAX-VALUE . . .  388
+     266   WS-SALES-RANGE-MIN-VALUE . . .  386
+     276   WS-SALESMAST-EOF . . . . . . .  297 322
+     275   WS-SALESMAST-EOF-SWITCH. . . .  M525 M530
+     277   WS-SALESMAST-NOT-EOF
+     222   WS-SLSP-FOUR-ST-RATING . . . .  519
+     195   WS-SLSP-RATING . . . . . . . .  M390 392
+     268   WS-STAR-RATING . . . . . . . .  390
+     274   WS-SWITCHES
+     146   WS-TOTAL-COMM. . . . . . . . .  M355 M371 M402
+     140   WS-TOTAL-GROSS . . . . . . . .  M352 M368 M399
+     138   WS-TOTAL-ID. . . . . . . . . .  M357 M373
+     144   WS-TOTAL-NET . . . . . . . . .  M354 M370 M401
+     142   WS-TOTAL-RETURN. . . . . . . .  M353 M369 M400
+     136   WS-TOTALS. . . . . . . . . . .  359 375 403
+     158   WS-TOTALS-UL . . . . . . . . .  358 360
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    15
+Context usage is indicated by the letter preceding a procedure-name reference.
+These letters and their meanings are:
+    A = ALTER (procedure-name)
+    D = GO TO (procedure-name) DEPENDING ON
+    E = End of range of (PERFORM) through (procedure-name)
+    G = GO TO (procedure-name)
+    P = PERFORM (procedure-name)
+    T = (ALTER) TO PROCEED TO (procedure-name)
+    U = USE FOR DEBUGGING (procedure-name)
+ 
+ Defined   Cross-reference of procedures   References
+ 
+     527   B000-START-AIX . . . . . . . .  P288
+     308   U100-FORMAT-DATE . . . . . . .  P296
+     285   000-MAINLINE
+     303   1000-PRNT-HEADING. . . . . . .  P330 P338
+     319   1100-PRNT-TABLE. . . . . . . .  P297
+     350   1200-PRNT-BRANCH-TOTALS. . . .  P323 P334
+     367   1250-PRNT-DEPT-TOTALS. . . . .  P341 P351
+     381   1300-PRNT-SALESPERSON-INFO . .  P331 P339 P343 P345
+     398   1400-PRNT-GRAND-TOTALS . . . .  P324
+     408   1500-SALESPERSON-CALCULATIONS.  P382
+     463   1550-ZERO-BRANCH-TOTALS. . . .  P363
+     472   1560-ZERO-DEPT-TOTALS. . . . .  P377
+     484   1600-UPDATE-BRANCH-BREAK . . .  P328 P336
+     491   1650-UPDATE-DEPT-BREAK . . . .  P329 P337 P342
+     496   1700-INCREMENT-PG-NUMBER . . .  P327 P335
+     502   1800-BEST-SALES-OUTPUT . . . .  P325
+     524   2500-READ-INPUT. . . . . . . .  P320
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    16
+ Defined   Cross-reference of programs     References
+ 
+      35   LAB5
+PP 5655-EC6 IBM Enterprise COBOL for z/OS  6.3.0 P200115       LAB5      Date 06/07/2023  Time 19:53:44   Page    17
+LineID  Message code  Message text
+ 
+    44  IGYGR1130-I   "RECORD KEY" or "ALTERNATE KEY" "SALESPERSON-NO" was not defined as an alphanumeric item.  The key was treated
+                      as an alphanumeric item in input and output statements for this file.
+ 
+    66  IGYGR1216-I   A "RECORDING MODE" of "F" was assumed for file "PRNT-FILE".
+Messages    Total    Informational    Warning    Error    Severe    Terminating
+Printed:       2           2
+* Statistics for COBOL program LAB5:
+*    Source records = 531
+*    Data Division statements = 94
+*    Procedure Division statements = 139
+*    Generated COBOL statements = 0
+*    Program complexity factor = 146
+End of compilation 1,  program LAB5,  highest severity 0.
+Return code 0
+z/OS V2 R4 BINDER     19:53:46 WEDNESDAY JUNE  7, 2023
+BATCH EMULATOR  JOB(JCS2CPR2) STEP(S1      ) PGM= IEWBLINK  PROCEDURE(LKED    )
+ 
+ 
+ 
+                                *** O P E R A T I O N   S U M M A R Y   R E P O R T ***
+ 
+PROCESSING OPTIONS:
+ 
+   ALIASES             NO
+   ALIGN2              NO
+   AMODE               UNSPECIFIED
+   CALL                YES
+   CASE                UPPER
+   COMPAT              UNSPECIFIED
+   COMPRESS            AUTO
+   DCBS                NO
+   DYNAM               NO
+   EXTATTR             UNSPECIFIED
+   EXITS:              NONE
+   FILL                NONE
+   GID                 UNSPECIFIED
+   HOBSET              NO
+   INFO                NO
+   LET                 04
+   LINECT              060
+   LIST                SUMMARY
+   LISTPRIV            NO
+   LONGPARM            NO
+   MAP                 NO
+   MAXBLK              032760
+   MODMAP              NO
+   MSGLEVEL            00
+   OVLY                NO
+   PRINT               YES
+   RES                 NO
+   REUSABILITY         UNSPECIFIED
+   RMODE               UNSPECIFIED
+   RMODEX              NO
+   SIGN                NO
+   STORENX             NOREPLACE
+   STRIPCL             NO
+   STRIPSEC            NO
+   SYMTRACE
+   TERM                NO
+   TRAP                ON
+   UID                 UNSPECIFIED
+   UPCASE              NO
+   WKSPACE             000000K,000000K
+   XCAL                NO
+   XREF                NO
+   ***END OF OPTIONS***
+ 
+ 
+ 
+ 
+SAVE OPERATION SUMMARY:
+ 
+   MEMBER NAME         PCS2PRG2
+   LOAD LIBRARY        KC03CB3.LOAD
+   PROGRAM TYPE        PROGRAM OBJECT(FORMAT 3)
+   VOLUME SERIAL       KCTR26
+   DISPOSITION         REPLACED
+   TIME OF SAVE        19.53.46  JUN  7, 2023
+ 
+ 
+SAVE MODULE ATTRIBUTES:
+ 
+   AC                  000
+   AMODE                31
+   COMPRESSION         NONE
+   DC                  NO
+   EDITABLE            YES
+   EXCEEDS 16MB        NO
+   EXECUTABLE          YES
+   LONGPARM            NO
+   MIGRATABLE          NO
+   OL                  NO
+   OVLY                NO
+   PACK,PRIME          NO,NO
+   PAGE ALIGN          NO
+   REFR                NO
+   RENT                NO
+   REUS                NO
+   RMODE               ANY
+   SCTR                NO
+   SIGN                NO
+   SSI
+   SYM GENERATED       NO
+   TEST                NO
+   XPLINK              NO
+   MODULE SIZE (HEX)   00003F20
+   DASD SIZE (HEX)     00013000
+ 
+ 
+ ENTRY POINT AND ALIAS SUMMARY:
+ 
+ NAME:            ENTRY TYPE AMODE C_OFFSET CLASS NAME        STATUS
+ 
+ LAB5              MAIN_EP      31 00000000 C_CODE
+ 
+                         *** E N D   O F   O P E R A T I O N   S U M M A R Y   R E P O R T ***
+ 
+ 
+ 
+ 
+z/OS V2 R4 BINDER     19:53:46 WEDNESDAY JUNE  7, 2023
+BATCH EMULATOR  JOB(JCS2CPR2) STEP(S1      ) PGM= IEWBLINK  PROCEDURE(LKED    )
+IEW2008I 0F03 PROCESSING COMPLETED.  RETURN CODE =  0.
+ 
+ 
+ 
+----------------------
+MESSAGE SUMMARY REPORT
+----------------------
+ TERMINAL MESSAGES      (SEVERITY = 16)
+ NONE
+ 
+ SEVERE MESSAGES        (SEVERITY = 12)
+ NONE
+ 
+ ERROR MESSAGES         (SEVERITY = 08)
+ NONE
+ 
+ WARNING MESSAGES       (SEVERITY = 04)
+ NONE
+ 
+ INFORMATIONAL MESSAGES (SEVERITY = 00)
+ 2008
+ 
+ 
+ **** END OF MESSAGE SUMMARY REPORT ****
+ 
